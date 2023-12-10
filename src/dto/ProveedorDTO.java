@@ -1,11 +1,13 @@
 package dto;
 
-import java.time.LocalDate;
+import models.*;
+import models.enums.ResponsabilidadIva;
+
+import java.util.Date;
+import java.util.List;
 
 public class ProveedorDTO {
-    /*
-    public  int id;
-    public String cuit;
+    public int cuit;
     public ResponsabilidadIva responsabilidadIva; //Enum
     public String razonSocial;
     public String nombre;
@@ -13,14 +15,24 @@ public class ProveedorDTO {
     public String telefono;
     public String correo;
     public String numIngresosBrutos;
-    private LocalDate inicioActividades;
-    private float montoAdeudadoMaximo;
-    private List<CertificadoRetencion> certificadosRetencion;
-    private List<Rubro> rubros;
-    private List<Factura> listaFacturas;
-    private List<NotaDebito> listaNotasDebito;
-    private List<NotaCredito> listaNotasCredito;
-    private List<ProductoServicio> listaProductoServicio;
-    */
-}
+    public Date inicioActividades;
+    public float montoAdeudadoMaximo;
+    public List<CertificadoRetencion> certificadosRetencion;
+    public List<Rubro> rubros;
+    public List<Factura> listaFacturas;
+    public List<NotaDebito> listaNotasDebito;
+    public List<NotaCredito> listaNotasCredito;
+    public List<ProductoServicio> listaProductoServicio;
 
+    public static ProveedorDTO toDTO(Proveedor prov) {
+        return null;
+    }
+
+    public int getCuit() {
+        return Integer.parseInt(null);
+    }
+
+
+
+
+}

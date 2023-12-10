@@ -1,5 +1,7 @@
 package models;
+
 import models.enums.TipoCheque;
+
 import java.util.Date;
 
 public class Cheque extends FormaPago{

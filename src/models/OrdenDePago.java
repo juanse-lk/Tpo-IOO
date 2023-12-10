@@ -2,7 +2,7 @@ package models;
 
 import models.enums.ResponsabilidadIva;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class OrdenDePago {
 
@@ -54,9 +54,9 @@ public class OrdenDePago {
         return 0;
     }
 
-    public Proveedor getProveedor(){
+    public Proveedor getProveedor() throws Exception {
         //todo: Agregar el desarrollo de la funcion getProveedor
-        Proveedor p = new Proveedor("123", ResponsabilidadIva.MONOTRIBUTO, "a", "a", "a", "a", "a", "123", LocalDate.now(), 123);
+        Proveedor p = new Proveedor("123", ResponsabilidadIva.MONOTRIBUTO, "a", "a", "a", "a", "a", "123", new Date(), 123);
         return p;
     }
 

@@ -1,5 +1,7 @@
 package models;
+
 import models.enums.TipoDocumento;
+
 import java.util.Date;
 
 public class NotaCredito extends Documento {
