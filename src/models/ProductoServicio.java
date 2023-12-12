@@ -4,6 +4,9 @@ import models.enums.TipoIva;
 import models.enums.Unidad;
 import dto.ProductoServicioDTO;
 
+import dto.ProductoServicioDTO;
+import dto.RubroDTO;
+
 public class ProductoServicio {
 
     // Atributos
@@ -13,6 +16,8 @@ public class ProductoServicio {
     private TipoIva tipoIva;
     private String idProductoServicio;
 
+    // DTOs
+    public RubroDTO rubroAsociado;
     // Metodos
 
     // Getters y setters
@@ -49,6 +54,13 @@ public class ProductoServicio {
         this.idProductoServicio = idProductoServicio;
     }
 
+    public RubroDTO getRubroAsociado() {
+        return rubroAsociado;
+    }
+
+    public void setRubroAsociado(RubroDTO rubroAsociado) {
+        this.rubroAsociado = rubroAsociado;
+    }
     // Funciones de ProductoServicio
 
     public String getProveedor(){

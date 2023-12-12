@@ -11,11 +11,12 @@ public class ProductoServicioDTO {
     private float precioUnidad;
     private TipoIva tipoIva;
     private String idProductoServicio;
+    private String idRubro;
 
 
     // Metodos
 
-    // Getters
+    // Getters y setters
     public Unidad getUnidad() {
         return unidad;
     }
@@ -28,8 +29,6 @@ public class ProductoServicioDTO {
         return precioUnidad;
     }
 
-
-    // Setters
     public void setPrecioUnidad(float precioUnidad) {
         this.precioUnidad = precioUnidad;
     }
@@ -50,7 +49,14 @@ public class ProductoServicioDTO {
         this.idProductoServicio = idProductoServicio;
     }
 
-    // Funciones de ProductoServicio
+    public String getIdRubro() {
+        return idRubro;
+    }
+
+    public void setIdRubro(String idRubro) {
+        this.idRubro = idRubro;
+    }
+// Funciones de ProductoServicio
 
     public String getProveedor(){
         //Todo: desarrollar la funcion getproveedor
