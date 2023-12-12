@@ -1,10 +1,9 @@
-package models;
+package dto;
 
 import models.enums.TipoIva;
 import models.enums.Unidad;
-import dto.ProductoServicioDTO;
 
-public class ProductoServicio {
+public class ProductoServicioDTO {
 
     // Atributos
 
@@ -13,10 +12,10 @@ public class ProductoServicio {
     private TipoIva tipoIva;
     private String idProductoServicio;
 
+
     // Metodos
 
-    // Getters y setters
-    // Borrar setters?
+    // Getters
     public Unidad getUnidad() {
         return unidad;
     }
@@ -29,6 +28,8 @@ public class ProductoServicio {
         return precioUnidad;
     }
 
+
+    // Setters
     public void setPrecioUnidad(float precioUnidad) {
         this.precioUnidad = precioUnidad;
     }
@@ -58,25 +59,11 @@ public class ProductoServicio {
 
     // Constructor
 
-    public ProductoServicio(Unidad unidad, float precioUnidad, TipoIva tipoIva, String idProductoServicio) {
+
+    public ProductoServicioDTO(Unidad unidad, float precioUnidad, TipoIva tipoIva, String idProductoServicio) {
         this.unidad = unidad;
         this.precioUnidad = precioUnidad;
         this.tipoIva = tipoIva;
         this.idProductoServicio = idProductoServicio;
-    }
-
-    public ProductoServicioDTO toDTO() {
-        ProductoServicioDTO dto = new ProductoServicioDTO(this.getUnidad(), this.getPrecioUnidad(), this.getTipoIva(), this.getIdProductoServicio());
-        return dto;
-    }
-
-    public static ProductoServicio toModel(ProductoServicioDTO models){
-        ProductoServicio datos = new ProductoServicio(
-                models.getUnidad(),
-                models.getPrecioUnidad(),
-                models.getTipoIva(),
-                models.getIdProductoServicio()
-                );
-        return datos;
     }
 }

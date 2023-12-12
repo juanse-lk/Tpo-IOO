@@ -1,8 +1,10 @@
-package models;
+package dto;
+
+import models.ProductoServicio;
 
 import java.util.List;
 
-public class Rubro {
+public class RubroDTO {
 
     // Atributos
     private List<ProductoServicio> listaProductoServicio;
@@ -25,12 +27,6 @@ public class Rubro {
     }
 
     public void setIdRubro(String idRubro) {
-        this.idRubro = idRubro;
-    }
-
-    // Constructor
-
-    public Rubro(String idRubro) {
         this.idRubro = idRubro;
     }
 }
