@@ -1,7 +1,7 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import dao.ProveedorDAO;
 
@@ -37,19 +37,38 @@ public class ControllerProveedores {
 
     public ProveedorDTO obtenerProveedorPorCuit(int cuit){
         for (Proveedor proveedor: listaProveedores){
-            if(proveedor.getCuit() == cuit)){
+            if(proveedor.getCuit() == cuit){
                 return proveedor.toDTO();
             }
         }
         return null;
     }
 
-    public void eliminarProveedor(int cuit){
+    public void eliminarProveedor(int cuit) throws Exception {
         for (Proveedor proveedor : listaProveedores){
-            proveedorDAO.delete(proveedor.getCuit());
-            listaProveedores.remove(proveedor);
-            break;
+            if(proveedor.getCuit() == cuit) {
+                proveedorDAO.delete(proveedor.getCuit());
+                listaProveedores.remove(proveedor);
+                break;
+            }
         }
     }
+
+    // Devuelve todos los proveedores como DTO
+    public ArrayList<ProveedorDTO> obtenerProveedores(){ //TODO Revisar que con nombre, cuit y direccion alcance o le pasamos todo
+        ArrayList<ProveedorDTO> listProveedoresDTO = new ArrayList<>();
+        for (Proveedor proveedor : listaProveedores){
+            ProveedorDTO prov = new ProveedorDTO();
+            prov.nombre = proveedor.getNombre();
+            prov.cuit = proveedor.getCuit();
+            prov.direccion = proveedor.getDireccion();
+            listProveedoresDTO.add(prov);
+        }
+        return listProveedoresDTO;
+    }
+
+    //public getPrdocutos ?? TODO ?
+
+
 
 }
