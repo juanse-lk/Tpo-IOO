@@ -14,7 +14,7 @@ public class ProductoServicio {
     private Unidad unidad;
     private float precioUnidad;
     private TipoIva tipoIva;
-    private String idProductoServicio;
+    private int idProductoServicio;
 
     // DTOs
     public RubroDTO rubroAsociado;
@@ -46,11 +46,11 @@ public class ProductoServicio {
         this.tipoIva = tipoIva;
     }
 
-    public String getIdProductoServicio() {
+    public int getIdProductoServicio() {
         return idProductoServicio;
     }
 
-    public void setIdProductoServicio(String idProductoServicio) {
+    public void setIdProductoServicio(int idProductoServicio) {
         this.idProductoServicio = idProductoServicio;
     }
 
@@ -70,7 +70,7 @@ public class ProductoServicio {
 
     // Constructor
 
-    public ProductoServicio(Unidad unidad, float precioUnidad, TipoIva tipoIva, String idProductoServicio) {
+    public ProductoServicio(Unidad unidad, float precioUnidad, TipoIva tipoIva, int idProductoServicio) {
         this.unidad = unidad;
         this.precioUnidad = precioUnidad;
         this.tipoIva = tipoIva;
@@ -78,7 +78,11 @@ public class ProductoServicio {
     }
 
     public ProductoServicioDTO toDTO() {
-        ProductoServicioDTO dto = new ProductoServicioDTO(this.getUnidad(), this.getPrecioUnidad(), this.getTipoIva(), this.getIdProductoServicio());
+        ProductoServicioDTO dto = new ProductoServicioDTO(
+                this.getUnidad(),
+                this.getPrecioUnidad(),
+                this.getTipoIva(),
+                this.getIdProductoServicio());
         return dto;
     }
 

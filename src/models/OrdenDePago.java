@@ -56,7 +56,7 @@ public class OrdenDePago {
 
     public Proveedor getProveedor() throws Exception {
         //todo: Agregar el desarrollo de la funcion getProveedor
-        Proveedor p = new Proveedor("123", ResponsabilidadIva.MONOTRIBUTO, "a", "a", "a", "a", "a", "123", new Date(), 123);
+        Proveedor p = new Proveedor(123, ResponsabilidadIva.MONOTRIBUTO, "a", "a", "a", "a", "a", "123", new Date(), 123);
         return p;
     }
 

@@ -188,6 +188,8 @@ public class Proveedor {
         this.listaProductoServicio = listaProductoServicio;
     }
 
+
+    // Metodos de Proovedor
     public ProveedorDTO toDTO() {
         ProveedorDTO dto = new ProveedorDTO();
         dto.cuit = this.cuit;
@@ -201,5 +203,9 @@ public class Proveedor {
         dto.inicioActividades = this.inicioActividades;
         dto.montoAdeudadoMaximo = this.montoAdeudadoMaximo;
         return dto;
+    }
+
+    public void agregarRubro(Rubro rubro){
+        this.rubros.add(rubro);
     }
 }

@@ -9,9 +9,9 @@ import java.util.List;
 public class RubroDTO {
 
     // Atributos
-    private List<ProductoServicio> listaProductoServicio;
-    private String idRubro;
-    private  String nombreRubro;
+    public List<ProductoServicio> listaProductoServicio;
+    public String idRubro;
+    public   String nombreRubro;
 
     // Metodos
 
@@ -51,7 +51,6 @@ public class RubroDTO {
     }
 
     public static Rubro toModel(RubroDTO dto){
-
         return new Rubro(
                 dto.getIdRubro(),
                 dto.getNombreRubro(),

@@ -1,5 +1,7 @@
 package dto;
 
+import models.ProductoServicio;
+import models.Rubro;
 import models.enums.TipoIva;
 import models.enums.Unidad;
 
@@ -10,7 +12,7 @@ public class ProductoServicioDTO {
     private Unidad unidad;
     private float precioUnidad;
     private TipoIva tipoIva;
-    private String idProductoServicio;
+    private int idProductoServicio;
     private String idRubro;
 
 
@@ -41,11 +43,11 @@ public class ProductoServicioDTO {
         this.tipoIva = tipoIva;
     }
 
-    public String getIdProductoServicio() {
+    public int getIdProductoServicio() {
         return idProductoServicio;
     }
 
-    public void setIdProductoServicio(String idProductoServicio) {
+    public void setIdProductoServicio(int idProductoServicio) {
         this.idProductoServicio = idProductoServicio;
     }
 
@@ -56,20 +58,41 @@ public class ProductoServicioDTO {
     public void setIdRubro(String idRubro) {
         this.idRubro = idRubro;
     }
-// Funciones de ProductoServicio
+
+    // Constructor
+
+
+    public ProductoServicioDTO(Unidad unidad, float precioUnidad, TipoIva tipoIva, int idProductoServicio) {
+        this.unidad = unidad;
+        this.precioUnidad = precioUnidad;
+        this.tipoIva = tipoIva;
+        this.idProductoServicio = idProductoServicio;
+    }
+
+    public static ProductoServicio toModel(ProductoServicioDTO productoServicioDto){
+        return new ProductoServicio(
+                productoServicioDto.getUnidad(),
+                productoServicioDto.getPrecioUnidad(),
+                productoServicioDto.getTipoIva(),
+                productoServicioDto.getIdProductoServicio()
+        );
+    }
+
+    // Funciones de ProductoServicio
+
 
     public String getProveedor(){
         //Todo: desarrollar la funcion getproveedor
         return "idProveedor";
     }
 
-    // Constructor
-
-
-    public ProductoServicioDTO(Unidad unidad, float precioUnidad, TipoIva tipoIva, String idProductoServicio) {
-        this.unidad = unidad;
-        this.precioUnidad = precioUnidad;
-        this.tipoIva = tipoIva;
-        this.idProductoServicio = idProductoServicio;
+    /**
+     * Asigna un idRubro al proveedor.
+     * @param rubro nuevo rubro a crear
+     * @return void.
+     */
+    public void asignarRubroAProveedor(Rubro rubro){
+        this.idRubro = rubro.getIdRubro();
     }
+
 }

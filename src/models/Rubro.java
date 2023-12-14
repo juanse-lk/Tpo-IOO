@@ -59,9 +59,17 @@ public class Rubro {
 
     }
 
+    public Rubro(RubroDTO rubroDto){
+        this.idRubro = rubroDto.idRubro;
+        this.nombreRubro = rubroDto.nombreRubro;
+        this.listaProductoServicio = rubroDto.listaProductoServicio;
+    }
+}
+
     // Metodos de Rubro
 
     public List<ProductoServicio> getProductoServicioPorRubro(){
         return this.listaProductoServicio;
     }
-}
+
+

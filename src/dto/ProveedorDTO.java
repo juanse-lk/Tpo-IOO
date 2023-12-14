@@ -32,6 +32,10 @@ public class ProveedorDTO {
         return Integer.parseInt(null);
     }
 
+    // Metodos de ProveedeorDTO
+
+
+
 
 
 
