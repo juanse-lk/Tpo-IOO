@@ -230,5 +230,30 @@ public class ControllerProovedores {
         }
     }
 
+    /**
+     * Devuelve todos los productos como DTO.
+     * @return listProveedoresDTO.
+     */
+    public ArrayList<ProductoServicioDTO> getAllProductoServicio() throws Exception {
+        ArrayList<ProductoServicioDTO> dtoList = new ArrayList<>();
+        for (ProductoServicio p : productoServicioDAO.getAll(ProductoServicio.class)) {
+            dtoList.add(ProductoServicioDTO.toDTO(p));
+        }
+        return dtoList;
+    }
+
+    /**
+     * Busca un proveedor por cuit.
+     * @param idProducto
+     * @return ProductoServicioDTO.
+     */
+    public ProductoServicioDTO obtenerProductoPorId(int idProducto){
+        for (ProductoServicio productoServicio: listaProductosServicios){
+            if(productoServicio.getIdProductoServicio() == idProducto){
+                return ProductoServicio.toDTO();
+            }
+        }
+        return null;
+    }
 
 }

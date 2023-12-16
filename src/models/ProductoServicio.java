@@ -77,7 +77,7 @@ public class ProductoServicio {
         this.idProductoServicio = idProductoServicio;
     }
 
-    public ProductoServicioDTO toDTO() {
+    public static ProductoServicioDTO toDTO() {
         ProductoServicioDTO dto = new ProductoServicioDTO(
                 this.getUnidad(),
                 this.getPrecioUnidad(),

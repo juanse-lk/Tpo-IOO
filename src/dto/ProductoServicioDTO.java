@@ -78,6 +78,15 @@ public class ProductoServicioDTO {
         );
     }
 
+    public static ProductoServicioDTO toDTO(ProductoServicio productoServicio){
+        return new ProductoServicioDTO(
+                productoServicio.getUnidad(),
+                productoServicio.getPrecioUnidad(),
+                productoServicio.getTipoIva(),
+                productoServicio.getIdProductoServicio()
+        );
+    }
+
     // Funciones de ProductoServicio
 
 
@@ -94,5 +103,6 @@ public class ProductoServicioDTO {
     public void asignarRubroAProveedor(Rubro rubro){
         this.idRubro = rubro.getIdRubro();
     }
+
 
 }
