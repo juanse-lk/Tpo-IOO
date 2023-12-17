@@ -7,13 +7,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ProveedoresUi extends JFrame {
+public class MenuProveedoresUi extends JFrame {
     private JPanel pnlMain;
     private JButton btnConsulta;
     private JButton btnBuscar;
     private JButton btnAlta;
 
-    public ProveedoresUi(String titulo) throws Exception{
+    public MenuProveedoresUi(String titulo) throws Exception{
         super(titulo);
 
         this.setResizable(true);
@@ -27,6 +27,7 @@ public class ProveedoresUi extends JFrame {
 
         this.showDetalleProveedoresModule();
         this.showAltaProveedor();
+        this.showBusquedaProveedor();
 
         this.closeModule();
 
@@ -34,12 +35,12 @@ public class ProveedoresUi extends JFrame {
 
     public static void main(String[] args) throws Exception {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        ProveedoresUi self = new ProveedoresUi("Gestion de proveedores");
+        MenuProveedoresUi self = new MenuProveedoresUi("Gestion de proveedores");
     }
 
 
     void closeModule() {
-        ProveedoresUi self = this;
+        MenuProveedoresUi self = this;
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -56,7 +57,7 @@ public class ProveedoresUi extends JFrame {
     }
 
     void showDetalleProveedoresModule(){
-        ProveedoresUi self = this;
+        MenuProveedoresUi self = this;
 
         btnConsulta.addActionListener(new ActionListener() {
             @Override
@@ -73,7 +74,7 @@ public class ProveedoresUi extends JFrame {
     }
 
     void showAltaProveedor(){
-        ProveedoresUi self = this;
+        MenuProveedoresUi self = this;
 
         btnAlta.addActionListener(new ActionListener() {
             @Override
@@ -88,4 +89,22 @@ public class ProveedoresUi extends JFrame {
             }
         });
     }
+
+    void showBusquedaProveedor(){
+        MenuProveedoresUi self = this;
+
+        btnBuscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                self.setVisible(false);
+                try{
+                    BusquedaProveedoresUI d = new BusquedaProveedoresUI("Busqueda de proveedor");
+                }
+                catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
 }

@@ -5,18 +5,13 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class AltaProveedorUi extends JFrame{
-    private JPanel pnlMain;
+public class BusquedaProveedoresUI extends JFrame {
     private JTextField textField1;
-    private JComboBox comboBox1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JTextField textField6;
-    private JButton btnAgregar;
+    private JPanel pnlMain;
+    private JButton button1;
+    private JTable table1;
 
-    public AltaProveedorUi(String titulo) throws Exception{
+    public BusquedaProveedoresUI(String titulo) throws Exception {
         super(titulo);
 
         this.setResizable(true);
@@ -26,17 +21,19 @@ public class AltaProveedorUi extends JFrame{
         this.setSize(pnlMain.getPreferredSize());
         this.setBackground(Color.WHITE);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 
         this.closeModule();
+
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        AltaProveedorUi self = new AltaProveedorUi("Alta de proveedor");
+        AltaProveedorUi self = new AltaProveedorUi("Buscar proveedor por cuit");
     }
+
     void closeModule() {
-        AltaProveedorUi self = this;
+        BusquedaProveedoresUI self = this;
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -51,5 +48,4 @@ public class AltaProveedorUi extends JFrame{
             }
         });
     }
-
 }

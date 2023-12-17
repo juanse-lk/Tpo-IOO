@@ -50,7 +50,7 @@ public class MenuPrincipal extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 self.setVisible(false);
                 try {
-                    ProveedoresUi p = new ProveedoresUi("Proveedores");
+                    MenuProveedoresUi p = new MenuProveedoresUi("Proveedores");
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

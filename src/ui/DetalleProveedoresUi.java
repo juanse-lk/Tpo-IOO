@@ -55,8 +55,8 @@ public class DetalleProveedoresUi extends JFrame {
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
                 try {
-                    ProveedoresUi p = null;
-                    p = new ProveedoresUi("Proveedores");
+                    MenuProveedoresUi p = null;
+                    p = new MenuProveedoresUi("Proveedores");
                     p.setVisible(true);
                 } catch (Exception exception) {
                     exception.printStackTrace();
