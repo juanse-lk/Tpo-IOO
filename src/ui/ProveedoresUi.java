@@ -11,7 +11,7 @@ public class ProveedoresUi extends JFrame {
     private JPanel pnlMain;
     private JButton btnConsulta;
     private JButton btnBuscar;
-    private JButton buscarProveedorPorCUITButton;
+    private JButton btnAlta;
 
     public ProveedoresUi(String titulo) throws Exception{
         super(titulo);
@@ -26,6 +26,7 @@ public class ProveedoresUi extends JFrame {
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
         this.showDetalleProveedoresModule();
+        this.showAltaProveedor();
 
         this.closeModule();
 
@@ -63,6 +64,23 @@ public class ProveedoresUi extends JFrame {
                 self.setVisible(false);
                 try{
                     DetalleProveedoresUi d = new DetalleProveedoresUi("Detalle Proveedores");
+                }
+                catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    void showAltaProveedor(){
+        ProveedoresUi self = this;
+
+        btnAlta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                self.setVisible(false);
+                try{
+                    AltaProveedorUi d = new AltaProveedorUi("Alta de proveedor");
                 }
                 catch(Exception ex){
                     ex.printStackTrace();

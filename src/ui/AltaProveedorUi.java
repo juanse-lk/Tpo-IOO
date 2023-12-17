@@ -1,23 +1,24 @@
 package ui;
 
-import controllers.ControllerProovedores;
-import dto.ProveedorDTO;
-
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
 
-public class DetalleProveedoresUi extends JFrame {
-
-    private JPanel pnlProveedores;
+public class AltaProveedorUi extends JFrame{
     private JPanel pnlMain;
-    private JTable tblProveedores;
-    private ControllerProovedores controllerProveedores;
+    private JTextField textField1;
+    private JComboBox comboBox1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private JButton btnAgregar;
 
-    public DetalleProveedoresUi(String titulo) throws Exception{
+    public AltaProveedorUi(String titulo) throws Exception{
         super(titulo);
 
         this.setResizable(true);
@@ -29,27 +30,15 @@ public class DetalleProveedoresUi extends JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
-        controllerProveedores = ControllerProovedores.getInstances();
-
-        Object[][] data = convertDtoToData(controllerProveedores.getAllProveedores());
-        tblProveedores.setModel(new DefaultTableModel(data,new String[]{"CUIT","Nombre","Razon social"}));
-
         this.closeModule();
-
     }
 
-        public Object[][] convertDtoToData(List<ProveedorDTO> lista){
-            Object[][] data = new Object[lista.size()][4];
-            for (int i = 0; i < lista.size(); i++) {
-                data[i][0] = lista.get(i).getCuit();
-                data[i][1] = lista.get(i).getNombre();
-                data[i][2] = lista.get(i).getRazonSocial();
-            }
-            return data;
-        }
-
+    public static void main(String[] args) throws Exception{
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        AltaProveedorUi self = new AltaProveedorUi("Alta de proveedor");
+    }
     void closeModule() {
-        DetalleProveedoresUi self = this;
+        AltaProveedorUi self = this;
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -65,4 +54,4 @@ public class DetalleProveedoresUi extends JFrame {
         });
     }
 
-    }
+}
