@@ -78,7 +78,7 @@ public class ProductoServicioDTO {
         );
     }
 
-    public static ProductoServicioDTO toDTO(ProductoServicio productoServicio){
+    public static ProductoServicioDTO toDTO(ProductoServicio productoServicio) throws Exception{
         return new ProductoServicioDTO(
                 productoServicio.getUnidad(),
                 productoServicio.getPrecioUnidad(),

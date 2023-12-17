@@ -28,6 +28,68 @@ public class ProveedorDTO {
         return null;
     }
 
+    // Getters
+
+    public ResponsabilidadIva getResponsabilidadIva() {
+        return responsabilidadIva;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getNumIngresosBrutos() {
+        return numIngresosBrutos;
+    }
+
+    public Date getInicioActividades() {
+        return inicioActividades;
+    }
+
+    public float getMontoAdeudadoMaximo() {
+        return montoAdeudadoMaximo;
+    }
+
+    public List<CertificadoRetencion> getCertificadosRetencion() {
+        return certificadosRetencion;
+    }
+
+    public List<Rubro> getRubros() {
+        return rubros;
+    }
+
+    public List<Factura> getListaFacturas() {
+        return listaFacturas;
+    }
+
+    public List<NotaDebito> getListaNotasDebito() {
+        return listaNotasDebito;
+    }
+
+    public List<NotaCredito> getListaNotasCredito() {
+        return listaNotasCredito;
+    }
+
+    public List<ProductoServicio> getListaProductoServicio() {
+        return listaProductoServicio;
+    }
+
     public int getCuit() {
         return Integer.parseInt(null);
     }

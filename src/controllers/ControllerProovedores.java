@@ -247,13 +247,14 @@ public class ControllerProovedores {
      * @param idProducto
      * @return ProductoServicioDTO.
      */
+    /**
     public ProductoServicioDTO obtenerProductoPorId(int idProducto){
         for (ProductoServicio productoServicio: listaProductosServicios){
             if(productoServicio.getIdProductoServicio() == idProducto){
-                return ProductoServicio.toDTO();
+                return ProductoServicioDTO.toDTO();
             }
         }
         return null;
     }
-
+    */
 }
