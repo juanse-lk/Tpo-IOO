@@ -1,6 +1,8 @@
 package models;
 
-public class ItemOrdenCompra {
+import dto.ItemDTO;
+
+public class Item {
 
     // Atributos
 
@@ -32,16 +34,26 @@ public class ItemOrdenCompra {
         return importe;
     }
 
-
     // Setters
     public void setImporte(float importe) {
         this.importe = importe;
     }
 
+    private float calcularImporte(ProductoServicio prod, int cantidad){
+        float total = cantidad * prod.getPrecioUnidad() * ( 1 + prod.getTipoIva().getPercentage());
+        return total;
+    }
+
     // Constructor
-    public ItemOrdenCompra(int cantidad, ProductoServicio producto, float importe) {
+    public Item(int cantidad, ProductoServicio producto) {
         this.cantidad = cantidad;
         this.producto = producto;
-        this.importe = importe;
+        this.importe = calcularImporte(producto, cantidad);
+    }
+
+    public Item(ItemDTO itemDTO){
+        this.cantidad = itemDTO.cantidad;
+        this.importe = itemDTO.importe;
+        this.producto = ProductoServicio.toModel(itemDTO.producto);
     }
 }

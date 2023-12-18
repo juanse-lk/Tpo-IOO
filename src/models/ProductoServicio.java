@@ -77,12 +77,12 @@ public class ProductoServicio {
         this.idProductoServicio = idProductoServicio;
     }
 
-    public static ProductoServicioDTO toDTO() {
+    public static ProductoServicioDTO toDTO(ProductoServicio productoServicio) {
         ProductoServicioDTO dto = new ProductoServicioDTO(
-                this.getUnidad(),
-                this.getPrecioUnidad(),
-                this.getTipoIva(),
-                this.getIdProductoServicio());
+                productoServicio.getUnidad(),
+                productoServicio.getPrecioUnidad(),
+                productoServicio.getTipoIva(),
+                productoServicio.getIdProductoServicio());
         return dto;
     }
 

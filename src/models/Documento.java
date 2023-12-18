@@ -1,5 +1,6 @@
 package models;
 
+import dto.ProveedorDTO;
 import models.enums.TipoDocumento;
 
 import java.util.Date;
@@ -7,11 +8,11 @@ import java.util.Date;
 public abstract class Documento {
 
     // Atributos
-    private Date fecha;
-    private int idDocumento;
-    private float monto;
-    private Proveedor proveedor;
-    private TipoDocumento tipoDocumento;
+    protected Date fecha;
+    protected int idDocumento;
+    protected float monto;
+    protected Proveedor proveedor;
+    protected TipoDocumento tipoDocumento;
 
     // Metodos
 
@@ -58,6 +59,10 @@ public abstract class Documento {
         this.proveedor = proveedor;
     }
 
+    public void setProveedor(ProveedorDTO proveedor) throws Exception {
+        this.proveedor = new Proveedor(proveedor);
+    }
+
     public void setTipoDocumento(TipoDocumento tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
@@ -65,11 +70,11 @@ public abstract class Documento {
 
     //Constructor
 
-    public Documento(Date fecha, int idDocumento, float monto, Proveedor proveedor, TipoDocumento tipoDocumento) {
-        this.fecha = fecha;
-        this.idDocumento = idDocumento;
-        this.monto = monto;
-        this.proveedor = proveedor;
-        this.tipoDocumento = tipoDocumento;
-    }
+    //public Documento(Date fecha, int idDocumento, float monto, Proveedor proveedor, TipoDocumento tipoDocumento) {
+        //this.fecha = fecha;
+        //this.idDocumento = idDocumento;
+        //this.monto = monto;
+        //this.proveedor = proveedor;
+        //this.tipoDocumento = tipoDocumento;
+    //}
 }

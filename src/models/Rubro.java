@@ -50,26 +50,25 @@ public class Rubro {
         this.listaProductoServicio = listaProductoServicio;
     }
 
-    public RubroDTO toDTO(){
+    public RubroDTO toDTO() {
         RubroDTO dto = new RubroDTO(
-        this.getIdRubro(),
-        this.getNombreRubro(),
-        this.getListaProductoServicio());
+                this.getIdRubro(),
+                this.getNombreRubro(),
+                this.getListaProductoServicio());
         return dto;
 
     }
 
-    public Rubro(RubroDTO rubroDto){
+    public Rubro(RubroDTO rubroDto) {
         this.idRubro = rubroDto.idRubro;
         this.nombreRubro = rubroDto.nombreRubro;
         this.listaProductoServicio = rubroDto.listaProductoServicio;
     }
-}
 
     // Metodos de Rubro
 
-    public List<ProductoServicio> getProductoServicioPorRubro(){
+    public List<ProductoServicio> getProductoServicioPorRubro() {
         return this.listaProductoServicio;
     }
 
-
+}

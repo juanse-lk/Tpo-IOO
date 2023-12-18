@@ -250,7 +250,7 @@ public class ControllerProovedores {
     public ProductoServicioDTO obtenerProductoPorId(int idProducto){
         for (ProductoServicio productoServicio: listaProductosServicios){
             if(productoServicio.getIdProductoServicio() == idProducto){
-                return ProductoServicio.toDTO();
+                return ProductoServicio.toDTO(productoServicio);
             }
         }
         return null;

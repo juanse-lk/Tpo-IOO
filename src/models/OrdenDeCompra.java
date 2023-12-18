@@ -1,13 +1,18 @@
 package models;
+import dto.OrdenDeCompraDTO;
+
 import java.util.List;
+import java.util.Date;
 
 public class OrdenDeCompra {
 
     // Atributos
     private int idOrdenCompra;
-    private List<ItemOrdenCompra> detalleDeCompra;
+    private Date fecha;
+    private List<Item> detalleDeCompra;
     private float total;
     private boolean check;
+    private Factura factura;
 
     // Metodos
 
@@ -21,17 +26,22 @@ public class OrdenDeCompra {
         this.idOrdenCompra = idOrdenCompra;
     }
 
-    public List<ItemOrdenCompra> getDetalleDeCompra() {
+    public List<Item> getDetalleDeCompra() {
         return detalleDeCompra;
     }
 
-    public void setDetalleDeCompra(List<ItemOrdenCompra> detalleDeCompra) {
+    public void setDetalleDeCompra(List<Item> detalleDeCompra) {
         this.detalleDeCompra = detalleDeCompra;
     }
 
     public float getTotal() {
         return total;
     }
+
+    public Factura getFactura() {
+        return factura;
+    }
+
 
 
     // Setters
@@ -47,10 +57,18 @@ public class OrdenDeCompra {
         this.check = check;
     }
 
+    public void setFactura(Factura factura) {
+        this.factura = factura;
+    }
+
+
     // Metodos de OrdenDeCompra
     public float calcularTotal(){
-        //todo: Agregar el desarrollo de la funcion calcularTotal
-        return 0;
+        float total = 0;
+        for(Item item: this.detalleDeCompra) {
+            total += item.getImporte() * item.getCantidad();
+        }
+        return total;
     }
 
     public float getMontoAdeudadoMaximo(){
@@ -70,5 +88,14 @@ public class OrdenDeCompra {
         this.total = total;
         this.check = check;
     }
+
+    public OrdenDeCompraDTO toDTO() {
+        OrdenDeCompraDTO orden = new OrdenDeCompraDTO();
+        orden.idOrdenCompra = this.idOrdenCompra;
+        orden.fecha = this.fecha;
+        orden.total = this.calcularTotal();
+        return orden;
+    }
+
 }
 

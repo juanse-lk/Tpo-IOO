@@ -12,8 +12,17 @@ public class NotaCredito extends Documento {
 
     //Constructor
     // Metodo que tiene una clase que instancia al objeto
+
+    public NotaCredito(){
+        this.fecha = new Date();
+        this.monto = 0;
+    }
     public NotaCredito(Date fecha, int idDocumento, float monto, Proveedor proveedor, TipoDocumento tipoDocumento) {
-        super(fecha, idDocumento, monto, proveedor, tipoDocumento);
+        this.idDocumento = idDocumento;
+        this.fecha = fecha;
+        this.monto = monto;
+        this.proveedor = proveedor;
+        this.tipoDocumento = tipoDocumento;
     }
 
    }
