@@ -121,7 +121,7 @@ public class ControllerProovedores {
      * @param proveedor nuevo proveedor.
      * @return void.
      */
-    public void crearProveedor(ProveedorDTO proveedor) throws Exception {
+    public static void crearProveedor(ProveedorDTO proveedor) throws Exception {
 
         Proveedor nuevoProveedor = new Proveedor(proveedor);
         if(obtenerProveedorPorCuit(nuevoProveedor.getCuit()) == null){ //verifico que no exista
@@ -149,7 +149,7 @@ public class ControllerProovedores {
      * @param cuit cuit de proveedor.
      * @return Proveedor
      */
-    public Proveedor obtenerProveedorPorCuit(int cuit){
+    public static Proveedor obtenerProveedorPorCuit(int cuit){
         for (Proveedor proveedor: listaProveedores){
             if(proveedor.getCuit() == cuit){
                 return proveedor;
