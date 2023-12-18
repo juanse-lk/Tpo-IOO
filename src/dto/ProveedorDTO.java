@@ -95,8 +95,14 @@ public class ProveedorDTO {
         return listaProductoServicio;
     }
 
+   // Getters
+
     public int getCuit() {
-        return Integer.parseInt(null);
+        return cuit;
+    }
+
+    public boolean isCertificadosRetencion() {
+        return certificadosRetencion;
     }
 
     // Constructor

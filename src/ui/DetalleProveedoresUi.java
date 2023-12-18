@@ -32,7 +32,8 @@ public class DetalleProveedoresUi extends JFrame {
         controllerProveedores = ControllerProovedores.getInstances();
 
         Object[][] data = convertDtoToData(controllerProveedores.getAllProveedores());
-        tblProveedores.setModel(new DefaultTableModel(data,new String[]{"CUIT","Nombre","Razon social"}));
+        String[] columnas = new String[]{"CUIT", "Nombre", "Razón social"};
+        tblProveedores.setModel(new DefaultTableModel(data, columnas));
 
         this.closeModule();
 
