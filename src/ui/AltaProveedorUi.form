@@ -74,6 +74,7 @@
             </constraints>
             <properties>
               <background color="-15392958"/>
+              <font size="22"/>
               <foreground color="-7378496"/>
               <label value="Agregar Proveedor"/>
               <text value="Agregar Proveedor"/>

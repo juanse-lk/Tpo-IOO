@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
-public class BusquedaProveedoresUI extends JFrame {
+public class BusquedaProveedoresUi extends JFrame {
     private JTextField txtCuit;
     private JPanel pnlMain;
     private JButton btnBuscar;
@@ -25,7 +25,7 @@ public class BusquedaProveedoresUI extends JFrame {
     private ControllerProovedores controllerProveedores;
 
 
-    public BusquedaProveedoresUI(String titulo) throws Exception {
+    public BusquedaProveedoresUi(String titulo) throws Exception {
         super(titulo);
 
         this.setResizable(true);
@@ -65,7 +65,7 @@ public class BusquedaProveedoresUI extends JFrame {
     }
 
     void closeModule() {
-        BusquedaProveedoresUI self = this;
+        BusquedaProveedoresUi self = this;
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -82,7 +82,7 @@ public class BusquedaProveedoresUI extends JFrame {
     }
 
     void filtrarProveedores(){
-        BusquedaProveedoresUI self = this;
+        BusquedaProveedoresUi self = this;
         btnBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,7 +109,7 @@ public class BusquedaProveedoresUI extends JFrame {
     }
 
     void limpiarResultados(){
-        BusquedaProveedoresUI self = this;
+        BusquedaProveedoresUi self = this;
         btnLimpiar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

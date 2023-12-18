@@ -18,7 +18,6 @@ public class MenuPrincipal extends JFrame{
     public MenuPrincipal(String titulo) throws Exception{
         super(titulo);
 
-        //region Settings
         this.setResizable(true);
         this.setContentPane(this.pnlMain);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -27,11 +26,9 @@ public class MenuPrincipal extends JFrame{
         this.setBackground(Color.WHITE);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        //endregion
 
-        //region Register Modules
         this.showProveedoresModule();
-        //endregion
+        this.showProductosModule();
 
         this.closeModule();
     }
@@ -42,15 +39,29 @@ public class MenuPrincipal extends JFrame{
     }
 
     void showProveedoresModule() {
-
         MenuPrincipal self = this;
-
         btnProveedores.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 self.setVisible(false);
                 try {
                     MenuProveedoresUi p = new MenuProveedoresUi("Proveedores");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    void showProductosModule() {
+        MenuPrincipal self = this;
+        btnProductos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                self.setVisible(false);
+                try {
+                    MenuProductosUi p = new MenuProductosUi("Productos");
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

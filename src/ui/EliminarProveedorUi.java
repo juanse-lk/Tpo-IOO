@@ -14,7 +14,7 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
-public class EliminarProveedorUI extends JFrame {
+public class EliminarProveedorUi extends JFrame {
     private JPanel pnlMain;
     private JTextField txtCuit;
     private JButton btnEliminar;
@@ -22,7 +22,7 @@ public class EliminarProveedorUI extends JFrame {
     private ControllerProovedores controllerProveedores;
 
 
-    public EliminarProveedorUI(String titulo) throws Exception {
+    public EliminarProveedorUi(String titulo) throws Exception {
         super(titulo);
 
         this.setResizable(true);
@@ -55,7 +55,7 @@ public class EliminarProveedorUI extends JFrame {
     }
 
     void closeModule() {
-        EliminarProveedorUI self = this;
+        EliminarProveedorUi self = this;
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -73,7 +73,7 @@ public class EliminarProveedorUI extends JFrame {
     }
 
     void eliminarProveedor(){
-        EliminarProveedorUI self = this;
+        EliminarProveedorUi self = this;
         btnEliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

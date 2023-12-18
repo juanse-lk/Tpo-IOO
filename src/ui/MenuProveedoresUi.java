@@ -100,7 +100,7 @@ public class MenuProveedoresUi extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 self.setVisible(false);
                 try{
-                    BusquedaProveedoresUI d = new BusquedaProveedoresUI("Busqueda de proveedor");
+                    BusquedaProveedoresUi d = new BusquedaProveedoresUi("Busqueda de proveedor");
                 }
                 catch(Exception ex){
                     ex.printStackTrace();
@@ -117,7 +117,7 @@ public class MenuProveedoresUi extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 self.setVisible(false);
                 try{
-                    EliminarProveedorUI d = new EliminarProveedorUI("Eliminar proveedor");
+                    EliminarProveedorUi d = new EliminarProveedorUi("Eliminar proveedor");
                 }
                 catch(Exception ex){
                     ex.printStackTrace();
