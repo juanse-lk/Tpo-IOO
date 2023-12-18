@@ -12,6 +12,7 @@ public class MenuProveedoresUi extends JFrame {
     private JButton btnConsulta;
     private JButton btnBuscar;
     private JButton btnAlta;
+    private JButton btnEliminar;
 
     public MenuProveedoresUi(String titulo) throws Exception{
         super(titulo);
@@ -28,6 +29,7 @@ public class MenuProveedoresUi extends JFrame {
         this.showDetalleProveedoresModule();
         this.showAltaProveedor();
         this.showBusquedaProveedor();
+        this.showEliminarProveedor();
 
         this.closeModule();
 
@@ -99,6 +101,23 @@ public class MenuProveedoresUi extends JFrame {
                 self.setVisible(false);
                 try{
                     BusquedaProveedoresUI d = new BusquedaProveedoresUI("Busqueda de proveedor");
+                }
+                catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    void showEliminarProveedor(){
+        MenuProveedoresUi self = this;
+
+        btnEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                self.setVisible(false);
+                try{
+                    EliminarProveedorUI d = new EliminarProveedorUI("Eliminar proveedor");
                 }
                 catch(Exception ex){
                     ex.printStackTrace();

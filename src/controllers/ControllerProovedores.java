@@ -168,6 +168,7 @@ public class ControllerProovedores {
             if(proveedor.getCuit() == cuit) {
                 proveedorDAO.delete(proveedor.getCuit());
                 listaProveedores.remove(proveedor);
+                guardar();
                 break;
             }
         }
@@ -257,4 +258,11 @@ public class ControllerProovedores {
         return null;
     }
     */
+    public void guardar(){
+        try {
+            proveedorDAO.saveAll(listaProveedores);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

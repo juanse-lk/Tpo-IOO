@@ -51,7 +51,7 @@
           <text value="Proveedores"/>
         </properties>
       </component>
-      <component id="d5b89" class="javax.swing.JButton" binding="proveedoresButton" default-binding="true">
+      <component id="d5b89" class="javax.swing.JButton" binding="btnProductos">
         <constraints/>
         <properties>
           <background color="-15392958"/>
@@ -60,9 +60,9 @@
           <hideActionText value="false"/>
           <horizontalTextPosition value="11"/>
           <inheritsPopupMenu value="true"/>
-          <label value="Proveedores"/>
+          <label value="Productos"/>
           <preferredSize width="300" height="50"/>
-          <text value="Proveedores"/>
+          <text value="Productos"/>
         </properties>
       </component>
       <component id="ab5a" class="javax.swing.JButton" binding="proveedoresButton1" default-binding="true">

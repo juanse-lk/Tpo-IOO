@@ -11,7 +11,7 @@ public class MenuPrincipal extends JFrame{
     private JPanel pnlMain;
     private JPanel pnlHeader;
     private JButton btnProveedores;
-    private JButton proveedoresButton;
+    private JButton btnProductos;
     private JButton proveedoresButton1;
     private JButton proveedoresButton2;
 
