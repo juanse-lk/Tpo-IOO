@@ -123,7 +123,12 @@ public class AltaProveedorUi extends JFrame{
                     throw new RuntimeException(ex);
                 }
                 try {
-                    ControllerProovedores.crearProveedor(nuevoProveedor);
+                    if(ControllerProovedores.obtenerProveedorPorCuit(nuevoProveedor.cuit)==null){
+                        ControllerProovedores.crearProveedor(nuevoProveedor);
+                        JOptionPane.showMessageDialog(self, "Se agregó el proveedor", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else
+                        JOptionPane.showMessageDialog(self, "El proveedor ya existe", "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -137,7 +142,7 @@ public class AltaProveedorUi extends JFrame{
                 txtCorreo.setText("");
                 cmbRetenciones.setSelectedIndex(-1);
 
-                JOptionPane.showMessageDialog(self, "Se agregó el proveedor", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
             }
         });
         }

@@ -184,6 +184,7 @@ public class ControllerProovedores {
             ProveedorDTO prov = new ProveedorDTO();
             prov.nombre = proveedor.getNombre();
             prov.cuit = proveedor.getCuit();
+            prov.razonSocial = proveedor.getRazonSocial();
             prov.direccion = proveedor.getDireccion();
             listProveedoresDTO.add(prov);
         }

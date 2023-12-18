@@ -160,7 +160,8 @@
               <component id="39c40" class="javax.swing.JTable" binding="tblProveedores">
                 <constraints/>
                 <properties>
-                  <background color="-13947600"/>
+                  <background color="-1"/>
+                  <foreground color="-15392958"/>
                   <gridColor color="-14803166"/>
                 </properties>
               </component>
