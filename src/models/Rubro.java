@@ -50,7 +50,7 @@ public class Rubro {
         this.listaProductoServicio = listaProductoServicio;
     }
 
-    public RubroDTO toDTO() {
+    public RubroDTO toDTO(){
         RubroDTO dto = new RubroDTO(
                 this.getIdRubro(),
                 this.getNombreRubro(),
@@ -59,7 +59,7 @@ public class Rubro {
 
     }
 
-    public Rubro(RubroDTO rubroDto) {
+    public Rubro(RubroDTO rubroDto){
         this.idRubro = rubroDto.idRubro;
         this.nombreRubro = rubroDto.nombreRubro;
         this.listaProductoServicio = rubroDto.listaProductoServicio;
@@ -70,5 +70,5 @@ public class Rubro {
     public List<ProductoServicio> getProductoServicioPorRubro() {
         return this.listaProductoServicio;
     }
-
 }
+

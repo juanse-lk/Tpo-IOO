@@ -18,7 +18,7 @@ public class Proveedor {
     private String numIngresosBrutos;
     private Date inicioActividades;
     private float montoAdeudadoMaximo;
-    private List<CertificadoRetencion> certificadosRetencion;
+    private boolean certificadosRetencion;
     private List<Rubro> rubros;
     private List<Factura> listaFacturas;
     private List<NotaDebito> listaNotasDebito;
@@ -98,7 +98,7 @@ public class Proveedor {
         return montoAdeudadoMaximo;
     }
 
-    public List<CertificadoRetencion> getCertificadosRetencion() {
+    public boolean getCertificadosRetencion() {
         return certificadosRetencion;
     }
 
@@ -164,7 +164,7 @@ public class Proveedor {
         this.montoAdeudadoMaximo = montoAdeudadoMaximo;
     }
 
-    public void setCertificadosRetencion(List<CertificadoRetencion> certificadosRetencion) {
+    public void setCertificadosRetencion(boolean certificadosRetencion) {
         this.certificadosRetencion = certificadosRetencion;
     }
 

@@ -121,7 +121,7 @@ public class ControllerProovedores {
      * @param proveedor nuevo proveedor.
      * @return void.
      */
-    public void crearProveedor(ProveedorDTO proveedor) throws Exception {
+    public static void crearProveedor(ProveedorDTO proveedor) throws Exception {
 
         Proveedor nuevoProveedor = new Proveedor(proveedor);
         if(obtenerProveedorPorCuit(nuevoProveedor.getCuit()) == null){ //verifico que no exista
@@ -149,7 +149,7 @@ public class ControllerProovedores {
      * @param cuit cuit de proveedor.
      * @return Proveedor
      */
-    public Proveedor obtenerProveedorPorCuit(int cuit){
+    public static Proveedor obtenerProveedorPorCuit(int cuit){
         for (Proveedor proveedor: listaProveedores){
             if(proveedor.getCuit() == cuit){
                 return proveedor;
@@ -168,6 +168,7 @@ public class ControllerProovedores {
             if(proveedor.getCuit() == cuit) {
                 proveedorDAO.delete(proveedor.getCuit());
                 listaProveedores.remove(proveedor);
+                guardar();
                 break;
             }
         }
@@ -183,6 +184,7 @@ public class ControllerProovedores {
             ProveedorDTO prov = new ProveedorDTO();
             prov.nombre = proveedor.getNombre();
             prov.cuit = proveedor.getCuit();
+            prov.razonSocial = proveedor.getRazonSocial();
             prov.direccion = proveedor.getDireccion();
             listProveedoresDTO.add(prov);
         }
@@ -247,13 +249,21 @@ public class ControllerProovedores {
      * @param idProducto
      * @return ProductoServicioDTO.
      */
+    /**
     public ProductoServicioDTO obtenerProductoPorId(int idProducto){
         for (ProductoServicio productoServicio: listaProductosServicios){
             if(productoServicio.getIdProductoServicio() == idProducto){
-                return ProductoServicio.toDTO(productoServicio);
+                return ProductoServicioDTO.toDTO();
             }
         }
         return null;
     }
-
+    */
+    public void guardar(){
+        try {
+            proveedorDAO.saveAll(listaProveedores);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
