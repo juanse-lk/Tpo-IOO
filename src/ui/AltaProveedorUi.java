@@ -77,7 +77,6 @@ public class AltaProveedorUi extends JFrame{
         btnAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                self.setVisible(false);
 
                 boolean certificadosRetencion = false;
                 String certificado = Objects.requireNonNull(cmbRetenciones.getSelectedItem()).toString();
@@ -128,9 +127,18 @@ public class AltaProveedorUi extends JFrame{
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
-            }
 
+                txtCuit.setText("");
+                cmbRespIva.setSelectedIndex(-1);
+                txtRazSocial.setText("");
+                txtNombre.setText("");
+                txtDireccion.setText("");
+                txtTel.setText("");
+                txtCorreo.setText("");
+                cmbRetenciones.setSelectedIndex(-1);
+
+                JOptionPane.showMessageDialog(self, "Se agregó el proveedor", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }
         });
         }
-
 }
