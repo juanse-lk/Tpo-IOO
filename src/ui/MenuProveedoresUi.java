@@ -28,7 +28,7 @@ public class MenuProveedoresUi extends JFrame {
 
         this.showDetalleProveedoresModule();
         this.showAltaProveedor();
-        this.showBusquedaProveedor();
+        this.showBuscarProveedor();
         this.showEliminarProveedor();
 
         this.closeModule();
@@ -92,7 +92,7 @@ public class MenuProveedoresUi extends JFrame {
         });
     }
 
-    void showBusquedaProveedor(){
+    void showBuscarProveedor(){
         MenuProveedoresUi self = this;
 
         btnBuscar.addActionListener(new ActionListener() {
@@ -100,7 +100,7 @@ public class MenuProveedoresUi extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 self.setVisible(false);
                 try{
-                    BusquedaProveedoresUi d = new BusquedaProveedoresUi("Busqueda de proveedor");
+                    BuscarProveedoresUi d = new BuscarProveedoresUi("Busqueda de proveedor");
                 }
                 catch(Exception ex){
                     ex.printStackTrace();

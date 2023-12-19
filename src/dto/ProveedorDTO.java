@@ -33,80 +33,8 @@ public class ProveedorDTO {
         return null;
     }
 
-    // Getters
-
-    public ResponsabilidadIva getResponsabilidadIva() {
-        return responsabilidadIva;
-    }
-
-    public String getRazonSocial() {
-        return razonSocial;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public String getNumIngresosBrutos() {
-        return numIngresosBrutos;
-    }
-
-    public Date getInicioActividades() {
-        return inicioActividades;
-    }
-
-    public float getMontoAdeudadoMaximo() {
-        return montoAdeudadoMaximo;
-    }
-
-    public boolean getCertificadosRetencion() {
-        return certificadosRetencion;
-    }
-
-    public List<Rubro> getRubros() {
-        return rubros;
-    }
-
-    public List<Factura> getListaFacturas() {
-        return listaFacturas;
-    }
-
-    public List<NotaDebito> getListaNotasDebito() {
-        return listaNotasDebito;
-    }
-
-    public List<NotaCredito> getListaNotasCredito() {
-        return listaNotasCredito;
-    }
-
-    public List<ProductoServicio> getListaProductoServicio() {
-        return listaProductoServicio;
-    }
-
-   // Getters
-
-    public int getCuit() {
-        return cuit;
-    }
-
-    public boolean isCertificadosRetencion() {
-        return certificadosRetencion;
-    }
 
     // Constructor
-
 
     public ProveedorDTO(int cuit, ResponsabilidadIva responsabilidadIva, String razonSocial, String nombre, String direccion, String telefono, String correo, String numIngresosBrutos, Date inicioActividades, float montoAdeudadoMaximo, boolean certificadosRetencion, List<Rubro> rubros, List<Factura> listaFacturas, List<NotaDebito> listaNotasDebito, List<NotaCredito> listaNotasCredito, List<ProductoServicio> listaProductoServicio) {
         this.cuit = cuit;

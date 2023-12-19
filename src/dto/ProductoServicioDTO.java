@@ -1,6 +1,7 @@
 package dto;
 
 import models.ProductoServicio;
+import models.Proveedor;
 import models.Rubro;
 import models.enums.TipoIva;
 import models.enums.Unidad;
@@ -9,57 +10,17 @@ public class ProductoServicioDTO {
 
     // Atributos
 
-    private Unidad unidad;
-    private float precioUnidad;
-    private TipoIva tipoIva;
-    private int idProductoServicio;
-    private String idRubro;
+    public Unidad unidad;
+    public float precioUnidad;
+    public TipoIva tipoIva;
+    public int idProductoServicio;
+    public Rubro rubro;
 
-
-    // Metodos
-
-    // Getters y setters
-    public Unidad getUnidad() {
-        return unidad;
-    }
-
-    public void setUnidad(Unidad unidad) {
-        this.unidad = unidad;
-    }
-
-    public float getPrecioUnidad() {
-        return precioUnidad;
-    }
-
-    public void setPrecioUnidad(float precioUnidad) {
-        this.precioUnidad = precioUnidad;
-    }
-
-    public TipoIva getTipoIva() {
-        return tipoIva;
-    }
-
-    public void setTipoIva(TipoIva tipoIva) {
-        this.tipoIva = tipoIva;
-    }
-
-    public int getIdProductoServicio() {
-        return idProductoServicio;
-    }
-
-    public void setIdProductoServicio(int idProductoServicio) {
-        this.idProductoServicio = idProductoServicio;
-    }
-
-    public String getIdRubro() {
-        return idRubro;
-    }
-
-    public void setIdRubro(String idRubro) {
-        this.idRubro = idRubro;
-    }
-
+    public Proveedor proveedor;
     // Constructor
+    public ProductoServicioDTO() {
+
+    }
 
 
     public ProductoServicioDTO(Unidad unidad, float precioUnidad, TipoIva tipoIva, int idProductoServicio) {
@@ -69,12 +30,24 @@ public class ProductoServicioDTO {
         this.idProductoServicio = idProductoServicio;
     }
 
+    public ProductoServicioDTO(Unidad unidad, float precioUnidad, TipoIva tipoIva, int idProductoServicio, Proveedor proveedor, Rubro rubro) {
+        this.unidad = unidad;
+        this.precioUnidad = precioUnidad;
+        this.tipoIva = tipoIva;
+        this.idProductoServicio = idProductoServicio;
+        this.rubro = rubro;
+        this.proveedor = proveedor;
+
+    }
+
     public static ProductoServicio toModel(ProductoServicioDTO productoServicioDto){
         return new ProductoServicio(
-                productoServicioDto.getUnidad(),
-                productoServicioDto.getPrecioUnidad(),
-                productoServicioDto.getTipoIva(),
-                productoServicioDto.getIdProductoServicio()
+                productoServicioDto.unidad,
+                productoServicioDto.precioUnidad,
+                productoServicioDto.tipoIva,
+                productoServicioDto.idProductoServicio,
+                productoServicioDto.rubro,
+                productoServicioDto.proveedor
         );
     }
 
@@ -101,7 +74,7 @@ public class ProductoServicioDTO {
      * @return void.
      */
     public void asignarRubroAProveedor(Rubro rubro){
-        this.idRubro = rubro.getIdRubro();
+        this.rubro = rubro;
     }
 
 

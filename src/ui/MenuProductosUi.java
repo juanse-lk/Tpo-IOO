@@ -13,6 +13,7 @@ public class MenuProductosUi extends JFrame{
     private JButton btnBuscar;
     private JButton btnCrear;
     private JButton btnEliminar;
+    private JButton btnRubros;
 
     public MenuProductosUi(String titulo) throws Exception{
         super(titulo);
@@ -27,7 +28,9 @@ public class MenuProductosUi extends JFrame{
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
         this.showDetalleProductosModule();
-
+        this.showBuscarProducto();
+        this.ShowAltaProducto();
+        this.ShowDetalleRubros();
         this.closeModule();
     }
 
@@ -62,6 +65,57 @@ public class MenuProductosUi extends JFrame{
                 self.setVisible(false);
                 try{
                     DetalleProductosUi d = new DetalleProductosUi("Detalle Productos");
+                }
+                catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    void showBuscarProducto(){
+        MenuProductosUi self = this;
+
+        btnBuscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                self.setVisible(false);
+                try{
+                    BuscarProductosUi d = new BuscarProductosUi("Buscar producto por id");
+                }
+                catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    void ShowAltaProducto(){
+        MenuProductosUi self = this;
+
+        btnCrear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                self.setVisible(false);
+                try{
+                    AltaProductoUi a = new AltaProductoUi("Crear producto");
+                }
+                catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+
+    void ShowDetalleRubros(){
+        MenuProductosUi self = this;
+
+        btnRubros.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                self.setVisible(false);
+                try{
+                    DetalleRubrosUi a = new DetalleRubrosUi("Detalle Rubros");
                 }
                 catch(Exception ex){
                     ex.printStackTrace();

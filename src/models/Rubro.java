@@ -7,7 +7,7 @@ import java.util.List;
 public class Rubro {
 
     // Atributos
-    private String idRubro;
+    private int idRubro;
     private String nombreRubro;
     private List<ProductoServicio> listaProductoServicio;
 
@@ -23,11 +23,11 @@ public class Rubro {
         this.listaProductoServicio = listaProductoServicio;
     }
 
-    public String getIdRubro() {
+    public int getIdRubro() {
         return idRubro;
     }
 
-    public void setIdRubro(String idRubro) {
+    public void setIdRubro(int idRubro) {
         this.idRubro = idRubro;
     }
 
@@ -40,11 +40,11 @@ public class Rubro {
     }
 // Constructor
 
-    public Rubro(String idRubro) {
+    public Rubro(int idRubro) {
         this.idRubro = idRubro;
     }
 
-    public Rubro(String idRubro, String nombreRubro, List<ProductoServicio> listaProductoServicio) {
+    public Rubro(int idRubro, String nombreRubro, List<ProductoServicio> listaProductoServicio) {
         this.idRubro = idRubro;
         this.nombreRubro = nombreRubro;
         this.listaProductoServicio = listaProductoServicio;

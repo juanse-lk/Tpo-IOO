@@ -40,8 +40,8 @@ public class DetalleProductosUi extends JFrame{
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
                 try {
-                    MenuProveedoresUi p = null;
-                    p = new MenuProveedoresUi("Proveedores");
+                    MenuProductosUi p = null;
+                    p = new MenuProductosUi("Productos");
                     p.setVisible(true);
                 } catch (Exception exception) {
                     exception.printStackTrace();

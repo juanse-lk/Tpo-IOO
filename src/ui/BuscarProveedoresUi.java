@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
-public class BusquedaProveedoresUi extends JFrame {
+public class BuscarProveedoresUi extends JFrame {
     private JTextField txtCuit;
     private JPanel pnlMain;
     private JButton btnBuscar;
@@ -25,7 +25,7 @@ public class BusquedaProveedoresUi extends JFrame {
     private ControllerProovedores controllerProveedores;
 
 
-    public BusquedaProveedoresUi(String titulo) throws Exception {
+    public BuscarProveedoresUi(String titulo) throws Exception {
         super(titulo);
 
         this.setResizable(true);
@@ -51,9 +51,9 @@ public class BusquedaProveedoresUi extends JFrame {
     public Object[][] convertDtoToData(List<ProveedorDTO> lista){
         Object[][] data = new Object[lista.size()][4];
         for (int i = 0; i < lista.size(); i++) {
-            data[i][0] = lista.get(i).getCuit();
-            data[i][1] = lista.get(i).getNombre();
-            data[i][2] = lista.get(i).getRazonSocial();
+            data[i][0] = lista.get(i).cuit;
+            data[i][1] = lista.get(i).nombre;
+            data[i][2] = lista.get(i).razonSocial;
         }
         return data;
     }
@@ -65,7 +65,7 @@ public class BusquedaProveedoresUi extends JFrame {
     }
 
     void closeModule() {
-        BusquedaProveedoresUi self = this;
+        BuscarProveedoresUi self = this;
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -82,7 +82,7 @@ public class BusquedaProveedoresUi extends JFrame {
     }
 
     void filtrarProveedores(){
-        BusquedaProveedoresUi self = this;
+        BuscarProveedoresUi self = this;
         btnBuscar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,7 +101,7 @@ public class BusquedaProveedoresUi extends JFrame {
     public List<ProveedorDTO> filtrarProveedores(List<ProveedorDTO> proveedores, int cuit) {
         List<ProveedorDTO> filtrados = new ArrayList<>();
         for (ProveedorDTO proveedor : proveedores) {
-            if (proveedor.getCuit() == cuit) {
+            if (proveedor.cuit == cuit) {
                 filtrados.add(proveedor);
             }
         }
@@ -109,7 +109,7 @@ public class BusquedaProveedoresUi extends JFrame {
     }
 
     void limpiarResultados(){
-        BusquedaProveedoresUi self = this;
+        BuscarProveedoresUi self = this;
         btnLimpiar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

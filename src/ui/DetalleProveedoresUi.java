@@ -31,24 +31,10 @@ public class DetalleProveedoresUi extends JFrame {
 
         controllerProveedores = ControllerProovedores.getInstances();
 
-        Object[][] data = convertDtoToData(controllerProveedores.getAllProveedores());
-        String[] columnas = new String[]{"CUIT", "Nombre", "Razón social"};
-        tblProveedores.setModel(new DefaultTableModel(data, columnas));
-
+        this.mostrarTabla();
         this.closeModule();
 
     }
-
-        public Object[][] convertDtoToData(List<ProveedorDTO> lista){
-            Object[][] data = new Object[lista.size()][4];
-            for (int i = 0; i < lista.size(); i++) {
-                data[i][0] = lista.get(i).getCuit();
-                data[i][1] = lista.get(i).getNombre();
-                data[i][2] = lista.get(i).getRazonSocial();
-            }
-            return data;
-        }
-
     void closeModule() {
         DetalleProveedoresUi self = this;
         this.addWindowListener(new WindowAdapter() {
@@ -64,6 +50,21 @@ public class DetalleProveedoresUi extends JFrame {
                 }
             }
         });
+    }
+        public Object[][] convertDtoToData(List<ProveedorDTO> lista){
+            Object[][] data = new Object[lista.size()][4];
+            for (int i = 0; i < lista.size(); i++) {
+                data[i][0] = lista.get(i).cuit;
+                data[i][1] = lista.get(i).nombre;
+                data[i][2] = lista.get(i).razonSocial;
+            }
+            return data;
+        }
+
+    void mostrarTabla(){
+        Object[][] data = convertDtoToData(controllerProveedores.getAllProveedores());
+        String[] columnas = new String[]{"CUIT", "Nombre", "Razón social"};
+        tblProveedores.setModel(new DefaultTableModel(data, columnas));
     }
 
     }

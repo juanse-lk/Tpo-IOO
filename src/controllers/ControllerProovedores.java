@@ -70,11 +70,50 @@ public class ControllerProovedores {
     // Metodos sobre rubros
 
     /**
+     * Devuelve todos los rubros como DTO.
+     * @return listRubrosDto.
+     */
+    public ArrayList<RubroDTO> getAllRubros(){
+        ArrayList<RubroDTO> listRubrosDto = new ArrayList<>();
+        for (Rubro rubro : listaRubros){
+            RubroDTO rub = new RubroDTO();
+            rub.idRubro = rubro.getIdRubro();
+            rub.nombreRubro = rubro.getNombreRubro();
+            rub.listaProductoServicio = rubro.getListaProductoServicio();
+            listRubrosDto.add(rub);
+        }
+        return listRubrosDto;
+    }
+
+
+    public ArrayList<Integer> getAllRubrosId(){
+        ArrayList<Integer> listRubrosId = new ArrayList<>();
+        for (Rubro rubro : listaRubros){
+            listRubrosId.add(rubro.getIdRubro());
+        }
+        return listRubrosId;
+    }
+
+    /**
+     * Busca un rubro por id.
+     * @param idRubro
+     * @return Rubro
+     */
+    public static Rubro obtenerRubroPorId(int idRubro){
+        for (Rubro rubro : listaRubros){
+            if(rubro.getIdRubro() == idRubro){
+                return rubro;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Toma un idRubro y valida su existencia.
      * @param idRubro Valor a consultar.
      * @return boolean.
      */
-    public boolean existeRubro(String idRubro){
+    public static boolean existeRubro(int idRubro){
         for(Rubro r: listaRubros){
             if(Objects.equals(r.getIdRubro(), idRubro))
                 return true;
@@ -84,12 +123,14 @@ public class ControllerProovedores {
 
     /**
      * Crea un nuevo rubro si no existe.
-     * @param rubroDto nuevo rubro a crear
+     * @param rubro nuevo rubro a crear
      * @return void.
      */
-    public void crearRubro(RubroDTO rubroDto) throws Exception {
-        if(!existeRubro(rubroDto.getIdRubro())){
-            rubroDAO.save(RubroDTO.toModel(rubroDto));
+    public static void crearRubro(RubroDTO rubro) throws Exception {
+        Rubro nuevoRubro = new Rubro(rubro);
+        if(obtenerRubroPorId(nuevoRubro.getIdRubro())==null){
+            rubroDAO.save(nuevoRubro);
+            listaRubros.add(nuevoRubro);
         }
     }
 
@@ -178,7 +219,7 @@ public class ControllerProovedores {
      * Devuelve todos los proveedores como DTO.
      * @return listProveedoresDTO.
      */
-    public ArrayList<ProveedorDTO> getAllProveedores(){ //TODO Revisar que con nombre, cuit y direccion alcance o le pasamos todo
+    public ArrayList<ProveedorDTO> getAllProveedores(){
         ArrayList<ProveedorDTO> listProveedoresDTO = new ArrayList<>();
         for (Proveedor proveedor : listaProveedores){
             ProveedorDTO prov = new ProveedorDTO();
@@ -191,6 +232,14 @@ public class ControllerProovedores {
         return listProveedoresDTO;
     }
 
+    public ArrayList<Integer> getAllProveedoresCuit(){
+        ArrayList<Integer> cuits = new ArrayList<>();
+        for(Proveedor proveedor: listaProveedores){
+            cuits.add(proveedor.getCuit());
+        }
+        return cuits;
+    }
+
     // Metodos de productos
 
     /**
@@ -198,7 +247,7 @@ public class ControllerProovedores {
      * @param idProductoServicio Valor a consultar.
      * @return boolean.
      */
-    public boolean existeProducto(int idProductoServicio){
+    public static boolean existeProducto(int idProductoServicio){
         for(ProductoServicio p: listaProductosServicios){
             if(Objects.equals(p.getIdProductoServicio(), idProductoServicio))
                 return true;
@@ -212,8 +261,8 @@ public class ControllerProovedores {
      * @param productoServicioDto nuevo producto a crear
      * @return void.
      */
-    public void crearProducto(ProductoServicioDTO productoServicioDto) throws Exception {
-        if(!existeProducto(productoServicioDto.getIdProductoServicio())){
+    public static void crearProducto(ProductoServicioDTO productoServicioDto) throws Exception {
+        if(!existeProducto(productoServicioDto.idProductoServicio)){
             productoServicioDAO.save(ProductoServicioDTO.toModel(productoServicioDto));
         }
     }
@@ -236,12 +285,18 @@ public class ControllerProovedores {
      * Devuelve todos los productos como DTO.
      * @return listProveedoresDTO.
      */
-    public ArrayList<ProductoServicioDTO> getAllProductoServicio() throws Exception {
-        ArrayList<ProductoServicioDTO> dtoList = new ArrayList<>();
-        for (ProductoServicio p : productoServicioDAO.getAll(ProductoServicio.class)) {
-            dtoList.add(ProductoServicioDTO.toDTO(p));
+    public ArrayList<ProductoServicioDTO> getAllProductoServicio() {
+        ArrayList<ProductoServicioDTO> listProductoServicioDto = new ArrayList<>();
+        for (ProductoServicio productoServicio: listaProductosServicios) {
+            ProductoServicioDTO prod = new ProductoServicioDTO();
+            prod.unidad = productoServicio.getUnidad();
+            prod.precioUnidad = productoServicio.getPrecioUnidad();
+            prod.tipoIva = productoServicio.getTipoIva();
+            prod.idProductoServicio = productoServicio.getIdProductoServicio();
+            prod.rubro = productoServicio.getRubroAsociado();
+            listProductoServicioDto.add(prod);
         }
-        return dtoList;
+        return listProductoServicioDto;
     }
 
     /**

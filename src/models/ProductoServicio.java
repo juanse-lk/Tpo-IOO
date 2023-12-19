@@ -15,13 +15,12 @@ public class ProductoServicio {
     private float precioUnidad;
     private TipoIva tipoIva;
     private int idProductoServicio;
-
-    // DTOs
-    public RubroDTO rubroAsociado;
+    private Proveedor proveedor;
+    private Rubro rubroAsociado;
     // Metodos
 
     // Getters y setters
-    // Borrar setters?
+
     public Unidad getUnidad() {
         return unidad;
     }
@@ -54,19 +53,22 @@ public class ProductoServicio {
         this.idProductoServicio = idProductoServicio;
     }
 
-    public RubroDTO getRubroAsociado() {
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public Rubro getRubroAsociado() {
         return rubroAsociado;
     }
 
-    public void setRubroAsociado(RubroDTO rubroAsociado) {
+    public void setRubroAsociado(Rubro rubroAsociado) {
         this.rubroAsociado = rubroAsociado;
     }
-    // Funciones de ProductoServicio
 
-    public String getProveedor(){
-        //Todo: desarrollar la funcion getproveedor
-        return "idProveedor";
-    }
 
     // Constructor
 
@@ -75,6 +77,15 @@ public class ProductoServicio {
         this.precioUnidad = precioUnidad;
         this.tipoIva = tipoIva;
         this.idProductoServicio = idProductoServicio;
+    }
+
+    public ProductoServicio(Unidad unidad, float precioUnidad, TipoIva tipoIva, int idProductoServicio, Rubro rubro, Proveedor proveedor) {
+        this.unidad = unidad;
+        this.precioUnidad = precioUnidad;
+        this.tipoIva = tipoIva;
+        this.idProductoServicio = idProductoServicio;
+        this.rubroAsociado = rubro;
+        this.proveedor = proveedor;
     }
 
     public ProductoServicioDTO toDTO() {
@@ -98,10 +109,10 @@ public class ProductoServicio {
 
     public static ProductoServicio toModel(ProductoServicioDTO models){
         ProductoServicio datos = new ProductoServicio(
-                models.getUnidad(),
-                models.getPrecioUnidad(),
-                models.getTipoIva(),
-                models.getIdProductoServicio()
+                models.unidad,
+                models.precioUnidad,
+                models.tipoIva,
+                models.idProductoServicio
                 );
         return datos;
     }

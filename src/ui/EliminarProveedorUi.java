@@ -47,9 +47,9 @@ public class EliminarProveedorUi extends JFrame {
     public Object[][] convertDtoToData(List<ProveedorDTO> lista) {
         Object[][] data = new Object[lista.size()][4];
         for (int i = 0; i < lista.size(); i++) {
-            data[i][0] = lista.get(i).getCuit();
-            data[i][1] = lista.get(i).getNombre();
-            data[i][2] = lista.get(i).getRazonSocial();
+            data[i][0] = lista.get(i).cuit;
+            data[i][1] = lista.get(i).nombre;
+            data[i][2] = lista.get(i).razonSocial;
         }
         return data;
     }
