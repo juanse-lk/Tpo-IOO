@@ -31,6 +31,7 @@ public class MenuProductosUi extends JFrame{
         this.showBuscarProducto();
         this.ShowAltaProducto();
         this.ShowDetalleRubros();
+        this.ShowEliminarProducto();
         this.closeModule();
     }
 
@@ -107,22 +108,35 @@ public class MenuProductosUi extends JFrame{
         });
     }
 
-    void ShowDetalleRubros(){
+    void ShowDetalleRubros() {
         MenuProductosUi self = this;
 
         btnRubros.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 self.setVisible(false);
-                try{
+                try {
                     DetalleRubrosUi a = new DetalleRubrosUi("Detalle Rubros");
-                }
-                catch(Exception ex){
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
         });
     }
+        void ShowEliminarProducto() {
+            MenuProductosUi self = this;
 
+            btnEliminar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    self.setVisible(false);
+                    try {
+                        EliminarProductoUi a = new EliminarProductoUi("Eliminar producto");
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            });
+        }
 
 }

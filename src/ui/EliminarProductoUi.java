@@ -4,20 +4,23 @@ import controllers.ControllerProovedores;
 import dto.ProductoServicioDTO;
 
 import javax.swing.*;
-import java.awt.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
-public class DetalleProductosUi extends JFrame{
+import static java.lang.Integer.parseInt;
+
+public class EliminarProductoUi extends JFrame{
     private JPanel pnlMain;
+    private JTextField txtId;
+    private JButton btnEliminar;
     private JTable tblProductos;
+
     private ControllerProovedores controllerProveedores;
 
-    private ControllerProovedores controllerProovedores;
-
-    public DetalleProductosUi(String titulo) throws Exception{
+    public EliminarProductoUi(String titulo) throws Exception{
         super(titulo);
 
         this.setResizable(true);
@@ -27,30 +30,12 @@ public class DetalleProductosUi extends JFrame{
         this.setSize(pnlMain.getPreferredSize());
         this.setBackground(Color.WHITE);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 
         controllerProveedores = ControllerProovedores.getInstances();
 
         this.mostrarTabla();
-        this.closeModule();
-
-    }
-
-    void closeModule() {
-        DetalleProductosUi self = this;
-        this.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
-                try {
-                    MenuProductosUi p = null;
-                    p = new MenuProductosUi("Productos");
-                    p.setVisible(true);
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                }
-            }
-        });
+        this.eliminarProducto();
     }
 
     public Object[][] convertDtoToData(List<ProductoServicioDTO> lista){
@@ -70,4 +55,21 @@ public class DetalleProductosUi extends JFrame{
     }
 
 
+    void eliminarProducto(){
+        EliminarProductoUi self = this;
+        btnEliminar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int idAEliminar = parseInt(txtId.getText());
+                try {
+                    controllerProveedores.eliminarProducto(idAEliminar);
+                    JOptionPane.showMessageDialog(self, "Se eliminó el producto", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    mostrarTabla();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+        });
+    }
 }

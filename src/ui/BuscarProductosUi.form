@@ -30,7 +30,7 @@
             <properties>
               <font size="28"/>
               <foreground color="-7378496"/>
-              <text value="Busqueda de productos"/>
+              <text value="Compulsa precios"/>
             </properties>
           </component>
           <hspacer id="f93c1">

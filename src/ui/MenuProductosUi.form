@@ -104,8 +104,8 @@
           <focusable value="true"/>
           <font size="22"/>
           <foreground color="-7378496"/>
-          <label value="Buscar producto por Id"/>
-          <text value="Buscar producto por Id"/>
+          <label value="Compulsa precios"/>
+          <text value="Compulsa precios"/>
         </properties>
       </component>
       <component id="a38eb" class="javax.swing.JButton" binding="btnCrear">

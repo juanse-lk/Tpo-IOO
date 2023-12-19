@@ -58,10 +58,9 @@ public class BuscarProveedoresUi extends JFrame {
         return data;
     }
 
-
     public static void main(String[] args) throws Exception {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        AltaProveedorUi self = new AltaProveedorUi("Buscar proveedor por cuit");
+        BuscarProveedoresUi self = new BuscarProveedoresUi("Buscar proveedor por cuit");
     }
 
     void closeModule() {

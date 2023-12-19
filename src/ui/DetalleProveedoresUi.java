@@ -51,15 +51,15 @@ public class DetalleProveedoresUi extends JFrame {
             }
         });
     }
-        public Object[][] convertDtoToData(List<ProveedorDTO> lista){
-            Object[][] data = new Object[lista.size()][4];
-            for (int i = 0; i < lista.size(); i++) {
-                data[i][0] = lista.get(i).cuit;
-                data[i][1] = lista.get(i).nombre;
-                data[i][2] = lista.get(i).razonSocial;
-            }
-            return data;
+    public Object[][] convertDtoToData(List<ProveedorDTO> lista){
+        Object[][] data = new Object[lista.size()][4];
+        for (int i = 0; i < lista.size(); i++) {
+            data[i][0] = lista.get(i).cuit;
+            data[i][1] = lista.get(i).nombre;
+            data[i][2] = lista.get(i).razonSocial;
         }
+        return data;
+    }
 
     void mostrarTabla(){
         Object[][] data = convertDtoToData(controllerProveedores.getAllProveedores());

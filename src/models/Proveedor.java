@@ -58,136 +58,134 @@ public class Proveedor {
 
     //Geters
 
+
     public int getCuit() {
         return cuit;
+    }
+
+    public void setCuit(int cuit) {
+        this.cuit = cuit;
     }
 
     public ResponsabilidadIva getResponsabilidadIva() {
         return responsabilidadIva;
     }
 
-    public String getRazonSocial() {
-        return razonSocial;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public String getNumIngresosBrutos() {
-        return numIngresosBrutos;
-    }
-
-    public Date getInicioActividades() {
-        return inicioActividades;
-    }
-
-    public float getMontoAdeudadoMaximo() {
-        return montoAdeudadoMaximo;
-    }
-
-    public boolean getCertificadosRetencion() {
-        return certificadosRetencion;
-    }
-
-    public List<Rubro> getRubros() {
-        return rubros;
-    }
-
-    public List<Factura> getListaFacturas() {
-        return listaFacturas;
-    }
-
-    public List<NotaDebito> getListaNotasDebito() {
-        return listaNotasDebito;
-    }
-
-    public List<NotaCredito> getListaNotasCredito() {
-        return listaNotasCredito;
-    }
-
-    public List<ProductoServicio> getListaProductoServicio() {
-        return listaProductoServicio;
-    }
-
-    // Seters
-
-    public void setCuit(int cuit) {
-        this.cuit = cuit;
-    }
-
     public void setResponsabilidadIva(ResponsabilidadIva responsabilidadIva) {
         this.responsabilidadIva = responsabilidadIva;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
     }
 
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
+
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
     }
 
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
+    public String getNumIngresosBrutos() {
+        return numIngresosBrutos;
+    }
+
     public void setNumIngresosBrutos(String numIngresosBrutos) {
         this.numIngresosBrutos = numIngresosBrutos;
+    }
+
+    public Date getInicioActividades() {
+        return inicioActividades;
     }
 
     public void setInicioActividades(Date inicioActividades) {
         this.inicioActividades = inicioActividades;
     }
 
+    public float getMontoAdeudadoMaximo() {
+        return montoAdeudadoMaximo;
+    }
+
     public void setMontoAdeudadoMaximo(float montoAdeudadoMaximo) {
         this.montoAdeudadoMaximo = montoAdeudadoMaximo;
+    }
+
+    public boolean isCertificadosRetencion() {
+        return certificadosRetencion;
     }
 
     public void setCertificadosRetencion(boolean certificadosRetencion) {
         this.certificadosRetencion = certificadosRetencion;
     }
 
+    public List<Rubro> getRubros() {
+        return rubros;
+    }
+
     public void setRubros(List<Rubro> rubros) {
         this.rubros = rubros;
+    }
+
+    public List<Factura> getListaFacturas() {
+        return listaFacturas;
     }
 
     public void setListaFacturas(List<Factura> listaFacturas) {
         this.listaFacturas = listaFacturas;
     }
 
+    public List<NotaDebito> getListaNotasDebito() {
+        return listaNotasDebito;
+    }
+
     public void setListaNotasDebito(List<NotaDebito> listaNotasDebito) {
         this.listaNotasDebito = listaNotasDebito;
+    }
+
+    public List<NotaCredito> getListaNotasCredito() {
+        return listaNotasCredito;
     }
 
     public void setListaNotasCredito(List<NotaCredito> listaNotasCredito) {
         this.listaNotasCredito = listaNotasCredito;
     }
 
+    public List<ProductoServicio> getListaProductoServicio() {
+        return listaProductoServicio;
+    }
+
     public void setListaProductoServicio(List<ProductoServicio> listaProductoServicio) {
         this.listaProductoServicio = listaProductoServicio;
     }
-
 
     // Metodos de Proovedor
     public ProveedorDTO toDTO() {

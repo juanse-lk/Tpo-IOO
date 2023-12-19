@@ -37,9 +37,9 @@ public class ControllerProovedores {
     private ControllerProovedores() throws Exception {
         proveedorDAO = new ProveedorDAO();
         listaProveedores = proveedorDAO.getAll(Proveedor.class);
-        rubroDAO = new RubroDAO(Rubro.class,getPathOutModel(Rubro.class.getSimpleName()));
+        rubroDAO = new RubroDAO();
         listaRubros = rubroDAO.getAll(Rubro.class);
-        productoServicioDAO = new ProductoServicioDAO(ProductoServicio.class,getPathOutModel(ProductoServicio.class.getSimpleName()));
+        productoServicioDAO = new ProductoServicioDAO();
         listaProductosServicios = productoServicioDAO.getAll(ProductoServicio.class);
     }
 
@@ -247,9 +247,9 @@ public class ControllerProovedores {
      * @param idProductoServicio Valor a consultar.
      * @return boolean.
      */
-    public static boolean existeProducto(int idProductoServicio){
+    public static boolean existeProducto(int idProductoServicio, int cuit){
         for(ProductoServicio p: listaProductosServicios){
-            if(Objects.equals(p.getIdProductoServicio(), idProductoServicio))
+            if(Objects.equals(p.getIdProductoServicio(), idProductoServicio) & p.getProveedor().getCuit() == cuit)
                 return true;
         }
         return false;
@@ -262,10 +262,13 @@ public class ControllerProovedores {
      * @return void.
      */
     public static void crearProducto(ProductoServicioDTO productoServicioDto) throws Exception {
-        if(!existeProducto(productoServicioDto.idProductoServicio)){
+        ProductoServicio nuevoProductoServicio = new ProductoServicio(productoServicioDto);
+        if(!existeProducto(productoServicioDto.idProductoServicio, productoServicioDto.proveedor.getCuit())){
             productoServicioDAO.save(ProductoServicioDTO.toModel(productoServicioDto));
+            listaProductosServicios.add(nuevoProductoServicio);
         }
     }
+
 
     /**
      * Elimina un producto.
@@ -277,9 +280,12 @@ public class ControllerProovedores {
             if(idProductoServicio == productoServicio.getIdProductoServicio()){
                 productoServicioDAO.delete(productoServicio.getIdProductoServicio());
                 listaProductosServicios.remove(productoServicio);
+                guardar();
+                break;
             }
         }
     }
+
 
     /**
      * Devuelve todos los productos como DTO.
@@ -294,6 +300,7 @@ public class ControllerProovedores {
             prod.tipoIva = productoServicio.getTipoIva();
             prod.idProductoServicio = productoServicio.getIdProductoServicio();
             prod.rubro = productoServicio.getRubroAsociado();
+            prod.proveedor = productoServicio.getProveedor();
             listProductoServicioDto.add(prod);
         }
         return listProductoServicioDto;

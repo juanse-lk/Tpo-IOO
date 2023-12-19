@@ -39,27 +39,28 @@ public class BuscarProductosUi extends JFrame{
 
         controllerProveedores = ControllerProovedores.getInstances();
 
-        this.cargarTabla();
+        this.mostrarTabla();
+        this.filtrarProductos();
+        this.limpiarResultados();
         this.closeModule();
 
     }
-    public Object[][] convertDtoToData(List<ProductoServicioDTO> lista) {
-        Object[][] data = new Object[lista.size()][4];
+    public Object[][] convertDtoToData(List<ProductoServicioDTO> lista){
+        Object[][] data = new Object[lista.size()][6];
         for (int i = 0; i < lista.size(); i++) {
-            data[i][0] = lista.get(i).unidad;
-            data[i][1] = lista.get(i).precioUnidad;
-            data[i][2] = lista.get(i).tipoIva;
-            data[i][3] = lista.get(i).idProductoServicio;
-            data[i][4] = lista.get(i).rubro;
+            data[i][0] = lista.get(i).idProductoServicio;
+            data[i][1] = lista.get(i).unidad;
+            data[i][2] = lista.get(i).precioUnidad;
+            data[i][3] = lista.get(i).proveedor.getCuit();
+            data[i][4] = lista.get(i).rubro.getIdRubro();
         }
         return data;
     }
-    void cargarTabla(){
-        Object[][] data = convertDtoToData(controllerProveedores.getAllProductoServicio());
-        String[] columnas = new String[]{"CUIT", "Nombre", "Razón social"};
-        tblProductos.setModel(new DefaultTableModel(data, columnas));
-    }
 
+    public static void main(String[] args) throws Exception {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        BuscarProductosUi self = new BuscarProductosUi("Buscar producto por id");
+    }
     void closeModule() {
         BuscarProductosUi self = this;
         this.addWindowListener(new WindowAdapter() {
@@ -76,4 +77,49 @@ public class BuscarProductosUi extends JFrame{
             }
         });
     }
+
+    void filtrarProductos(){
+        BuscarProductosUi self = this;
+        btnBuscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int idBuscado = parseInt(txtId.getText());
+                List<ProductoServicioDTO> productos = controllerProveedores.getAllProductoServicio();
+                List<ProductoServicioDTO> productosFiltrados = filtrarProductos(productos, idBuscado);
+                Object[][] dataFiltrada = convertDtoToData(productosFiltrados);
+
+                DefaultTableModel modelo = new DefaultTableModel(dataFiltrada, new String[]{"Id", "Unidad", "Precio por unidad", "CUIT proveedor", "Rubro"});
+                tblProductos.setModel(modelo);
+
+            }
+        });
+    }
+    public List<ProductoServicioDTO> filtrarProductos(List<ProductoServicioDTO> productos, int id) {
+        List<ProductoServicioDTO> filtrados = new ArrayList<>();
+        for (ProductoServicioDTO producto : productos) {
+            if (producto.idProductoServicio == id) {
+                filtrados.add(producto);
+            }
+        }
+        return filtrados;
+    }
+    void mostrarTabla(){
+        Object[][] data = convertDtoToData(controllerProveedores.getAllProductoServicio());
+        String[] columnas = new String[]{"Id", "Unidad", "Precio por unidad", "CUIT proveedor", "Rubro"};
+        tblProductos.setModel(new DefaultTableModel(data, columnas));
+    }
+
+    void limpiarResultados(){
+        BuscarProductosUi self = this;
+        btnLimpiar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mostrarTabla();
+            }
+        });
+    }
+
+
+
+
 }

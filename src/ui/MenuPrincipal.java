@@ -12,7 +12,7 @@ public class MenuPrincipal extends JFrame{
     private JPanel pnlHeader;
     private JButton btnProveedores;
     private JButton btnProductos;
-    private JButton proveedoresButton1;
+    private JButton documentosButton;
     private JButton proveedoresButton2;
 
     public MenuPrincipal(String titulo) throws Exception{

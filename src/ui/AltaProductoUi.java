@@ -137,11 +137,23 @@ public class AltaProductoUi extends JFrame{
                     throw new RuntimeException(ex);
                 }
                 try{
-                    ControllerProovedores.crearProducto(nuevoProductoServicio);
+                    if(!ControllerProovedores.existeProducto(nuevoProductoServicio.idProductoServicio, nuevoProductoServicio.proveedor.getCuit() )){
+                        ControllerProovedores.crearProducto(nuevoProductoServicio);
+                        JOptionPane.showMessageDialog(self, "Se agregó el producto", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else
+                        JOptionPane.showMessageDialog(self, "El proveedor ya existe", "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
 
+                txtId.setText("");
+                cmbProveedores.setSelectedIndex(-1);
+                cmbProveedores.setSelectedIndex(-1);
+                cmbUnidad.setSelectedIndex(-1);
+                txtPrecio.setText("");
+                cmbIva.setSelectedIndex(-1);
+                cmbRubro.setSelectedIndex(-1);
 
             }
         });

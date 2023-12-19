@@ -71,7 +71,14 @@ public class ProductoServicio {
 
 
     // Constructor
-
+    public ProductoServicio(ProductoServicioDTO productoServicioDTO) {
+        this.unidad = productoServicioDTO.unidad;
+        this.precioUnidad = productoServicioDTO.precioUnidad;
+        this.tipoIva = productoServicioDTO.tipoIva;
+        this.idProductoServicio = productoServicioDTO.idProductoServicio;
+        this.proveedor = productoServicioDTO.proveedor;
+        this.rubroAsociado = productoServicioDTO.rubro;
+    }
     public ProductoServicio(Unidad unidad, float precioUnidad, TipoIva tipoIva, int idProductoServicio) {
         this.unidad = unidad;
         this.precioUnidad = precioUnidad;

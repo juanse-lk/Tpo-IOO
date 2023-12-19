@@ -128,7 +128,7 @@ public class AltaProveedorUi extends JFrame{
                         JOptionPane.showMessageDialog(self, "Se agregó el proveedor", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     }
                     else
-                        JOptionPane.showMessageDialog(self, "El proveedor ya existe", "Resultado", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(self, "El producto ya existe para ese proveedor", "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
