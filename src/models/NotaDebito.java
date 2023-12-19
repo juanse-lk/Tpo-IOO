@@ -7,13 +7,15 @@ import java.util.Date;
 
 public class NotaDebito extends Documento{
 
-    // Metodos
-    // Deben implementarse dado que Documentos es abstracto
+    private OrdenDePago ordenDePagoAsociada;
 
-    // Getters
-    // Acceder a valores del atributo de clase
+    public OrdenDePago getOrdenDePagoAsociada() {
+        return ordenDePagoAsociada;
+    }
 
-
+    public void setOrdenDePagoAsociada(OrdenDePago ordenDePagoAsociada) {
+        this.ordenDePagoAsociada = ordenDePagoAsociada;
+    }
     // Constructor
     // Metodo que tiene una clase que instancia al objeto
     public NotaDebito(){

@@ -3,6 +3,7 @@ package models;
 import dto.FacturaDTO;
 import dto.ProveedorDTO;
 import models.enums.TipoDocumento;
+import models.enums.TipoIva;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,6 +13,7 @@ public class Factura extends Documento {
 
     // Atributos
     private List<Item> detalleFactura;
+    private OrdenDePago ordenDePagoAsociada;
 
     public Factura(){
         this.detalleFactura = new ArrayList<Item>();
@@ -34,6 +36,14 @@ public class Factura extends Documento {
 
     public List<Item> getDetalleFactura() {
         return detalleFactura;
+    }
+
+    public OrdenDePago getOrdenDePagoAsociada() {
+        return ordenDePagoAsociada;
+    }
+
+    public void setOrdenDePagoAsociada(OrdenDePago ordenDePagoAsociada) {
+        this.ordenDePagoAsociada = ordenDePagoAsociada;
     }
 
     public float calcularMonto(){
@@ -60,7 +70,6 @@ public class Factura extends Documento {
 
 
 
-
     public void addItem(Item nuevoItem) {
         this.detalleFactura.add(nuevoItem);
     }
@@ -75,6 +84,52 @@ public class Factura extends Documento {
         facturaDTO.fecha = this.getFecha();
         facturaDTO.monto = this.calcularMonto();
         return facturaDTO;
+    }
+
+    public float getIva2_5() {
+        float subTotal = 0;
+        for(Item item: this.detalleFactura) {
+            if(TipoIva.a == item.getProducto().getTipoIva()){
+                subTotal += item.getImporte() * (TipoIva.a.getPercentage() / 100);
+            }
+        }
+        return subTotal;
+    }
+    public float getIva_5() {
+        float subTotal = 0;
+        for(Item item: this.detalleFactura) {
+            if(TipoIva.b == item.getProducto().getTipoIva()){
+                subTotal += item.getImporte() * (TipoIva.b.getPercentage() / 100);
+            }
+        }
+        return subTotal;
+    }
+    public float getIva_10_5() {
+        float subTotal = 0;
+        for(Item item: this.detalleFactura) {
+            if(TipoIva.c == item.getProducto().getTipoIva()){
+                subTotal += item.getImporte() * (TipoIva.c.getPercentage() / 100);
+            }
+        }
+        return subTotal;
+    }
+    public float getIva_21() {
+        float subTotal = 0;
+        for(Item item: this.detalleFactura) {
+            if(TipoIva.d == item.getProducto().getTipoIva()){
+                subTotal += item.getImporte() * (TipoIva.d.getPercentage() / 100);
+            }
+        }
+        return subTotal;
+    }
+    public float getIva_27() {
+        float subTotal = 0;
+        for(Item item: this.detalleFactura) {
+            if(TipoIva.e == item.getProducto().getTipoIva()){
+                subTotal += item.getImporte() * (TipoIva.e.getPercentage() / 100);
+            }
+        }
+        return subTotal;
     }
 }
 
