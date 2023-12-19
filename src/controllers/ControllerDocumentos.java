@@ -136,8 +136,8 @@ public class ControllerDocumentos {
 
     // Libro IVA Compras
 
-    public LibroIvaComprasDTO obtenerLibroIva() {
-        LibroIvaComprasDTO libroIva = new LibroIvaComprasDTO();
+    public ArrayList<FilaLibroIvaDTO> obtenerLibroIva() {
+
         ArrayList<FilaLibroIvaDTO> filas = new ArrayList<>();
         for (Factura factura : this.facturas) {
             FilaLibroIvaDTO fila = new FilaLibroIvaDTO();
@@ -191,8 +191,8 @@ public class ControllerDocumentos {
 
             filas.add(fila);
         }
-        libroIva.libroIva = filas;
-        return libroIva;
+
+        return filas;
 
     }
 

@@ -65,7 +65,7 @@
           <text value="Productos"/>
         </properties>
       </component>
-      <component id="ab5a" class="javax.swing.JButton" binding="documentosButton" default-binding="true">
+      <component id="ab5a" class="javax.swing.JButton" binding="btnDocumentos">
         <constraints/>
         <properties>
           <background color="-15392958"/>
@@ -77,20 +77,6 @@
           <label value="Documentos"/>
           <preferredSize width="300" height="50"/>
           <text value="Documentos"/>
-        </properties>
-      </component>
-      <component id="648c6" class="javax.swing.JButton" binding="proveedoresButton2" default-binding="true">
-        <constraints/>
-        <properties>
-          <background color="-15392958"/>
-          <font size="22"/>
-          <foreground color="-7378496"/>
-          <hideActionText value="false"/>
-          <horizontalTextPosition value="11"/>
-          <inheritsPopupMenu value="true"/>
-          <label value="Proveedores"/>
-          <preferredSize width="300" height="50"/>
-          <text value="Proveedores"/>
         </properties>
       </component>
     </children>

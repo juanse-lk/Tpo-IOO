@@ -8,6 +8,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
@@ -36,6 +38,7 @@ public class EliminarProductoUi extends JFrame{
 
         this.mostrarTabla();
         this.eliminarProducto();
+        this.closeModule();
     }
 
     public Object[][] convertDtoToData(List<ProductoServicioDTO> lista){
@@ -69,6 +72,23 @@ public class EliminarProductoUi extends JFrame{
                     throw new RuntimeException(ex);
                 }
 
+            }
+        });
+    }
+
+    void closeModule() {
+        EliminarProductoUi self = this;
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                try {
+                    MenuProductosUi p = null;
+                    p = new MenuProductosUi("Productos");
+                    p.setVisible(true);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
     }
