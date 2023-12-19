@@ -37,9 +37,9 @@ public class ControllerProovedores {
     private ControllerProovedores() throws Exception {
         proveedorDAO = new ProveedorDAO();
         listaProveedores = proveedorDAO.getAll(Proveedor.class);
-        rubroDAO = new RubroDAO(Rubro.class,getPathOutModel(Rubro.class.getSimpleName()));
+        rubroDAO = new RubroDAO();
         listaRubros = rubroDAO.getAll(Rubro.class);
-        productoServicioDAO = new ProductoServicioDAO(ProductoServicio.class,getPathOutModel(ProductoServicio.class.getSimpleName()));
+        productoServicioDAO = new ProductoServicioDAO();
         listaProductosServicios = productoServicioDAO.getAll(ProductoServicio.class);
     }
 

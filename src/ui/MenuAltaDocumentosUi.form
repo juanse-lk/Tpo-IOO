@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ui.MenuAltaDocumentosUi">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="504" height="604"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="3e43f" binding="pnlMain" layout-manager="GridLayoutManager" row-count="9" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-15392958"/>
+          <focusable value="true"/>
+          <font size="22"/>
+          <maximumSize width="500" height="600"/>
+          <minimumSize width="500" height="600"/>
+          <preferredSize width="500" height="600"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="caf35" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-7378496"/>
+              <foreground color="-15392958"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="9c213" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-15392958"/>
+                  <font size="28"/>
+                  <foreground color="-15392958"/>
+                  <text value="Carga documentos"/>
+                </properties>
+              </component>
+              <hspacer id="10e59">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+            </children>
+          </grid>
+          <vspacer id="affd4">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <grid id="dbb92" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-15392958"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="d6ba9" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="Resources/LogoF.png"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <hspacer id="ae792">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+            </children>
+          </grid>
+          <component id="d6f4d" class="javax.swing.JButton" binding="btnCargaFactura">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="300" height="50"/>
+                <preferred-size width="300" height="50"/>
+                <maximum-size width="300" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15392958"/>
+              <focusable value="true"/>
+              <font size="22"/>
+              <foreground color="-7378496"/>
+              <text value="Cargar factura"/>
+            </properties>
+          </component>
+          <component id="45909" class="javax.swing.JButton" binding="btnCargaNc">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="300" height="50"/>
+                <preferred-size width="300" height="50"/>
+                <maximum-size width="300" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15392958"/>
+              <focusable value="true"/>
+              <font size="22"/>
+              <foreground color="-7378496"/>
+              <label value="Cargar nota de credito"/>
+              <text value="Cargar nota de credito"/>
+            </properties>
+          </component>
+          <component id="23aba" class="javax.swing.JButton" binding="btnCargaNd">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="300" height="50"/>
+                <preferred-size width="300" height="50"/>
+                <maximum-size width="300" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15392958"/>
+              <focusable value="true"/>
+              <font size="22"/>
+              <foreground color="-7378496"/>
+              <text value="Cargar nota de debito"/>
+            </properties>
+          </component>
+          <component id="fb3c2" class="javax.swing.JButton" binding="btnCargaOrdenCompra">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="300" height="50"/>
+                <preferred-size width="300" height="50"/>
+                <maximum-size width="300" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15392958"/>
+              <focusable value="true"/>
+              <font size="22"/>
+              <foreground color="-7378496"/>
+              <text value="Cargar orden de compra"/>
+            </properties>
+          </component>
+          <component id="80287" class="javax.swing.JButton" binding="btnCargaOrdenPago">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="300" height="50"/>
+                <preferred-size width="300" height="50"/>
+                <maximum-size width="300" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15392958"/>
+              <focusable value="true"/>
+              <font size="22"/>
+              <foreground color="-7378496"/>
+              <text value="Cargar orden de pago"/>
+            </properties>
+          </component>
+          <vspacer id="f4026">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
