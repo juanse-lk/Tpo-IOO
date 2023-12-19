@@ -3,6 +3,7 @@ package controllers;
 import dto.*;
 import models.*;
 import dao.*;
+import models.enums.FormaDePago;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -197,17 +198,40 @@ public class ControllerDocumentos {
 
     // Ordenes de Pago
 
-    /* public void agregarOrdenDePago(int cuitProveedor, List<ItemDTO> items) throws Exception {
-        Factura nuevaFactura = new Factura();
-        nuevaFactura.setIdDocumento(this.facturaDAO.getNextId());
+    public void agregarOrdenDePago(int idDocuentoAsociado, int importe, FormaDePago formaDePago) throws Exception {
+        OrdenDePago nuevaOrdenDePago = new OrdenDePago(this.ordenDePagoDAO.getNextId(), formaDePago, idDocuentoAsociado, importe);
 
-        for (ItemDTO itemDTO : items) {
-            Item nuevoItem = new Item(itemDTO);
-            nuevaFactura.addItem(nuevoItem);
+        this.ordenesDePago.add(nuevaOrdenDePago);
+        this.ordenDePagoDAO.save(nuevaOrdenDePago);
+
+    }
+
+    public List<OrdenDePagoDTO> getOrdenesDePagoByDate(Date fecha) {
+        List<OrdenDePagoDTO> OrdenesDePagoDTO = new ArrayList<>();
+        for (OrdenDePago orden : this.ordenesDePago) {
+            if (orden.getFecha().equals(fecha)) {
+                OrdenesDePagoDTO.add(orden.toDTO());
+            }
         }
-        nuevaFactura.setProveedor(ControllerProovedores.getInstances().obtenerProveedorPorCuit(cuitProveedor));
-        this.facturas.add(nuevaFactura);
-        this.facturaDAO.save(nuevaFactura);
+        return OrdenesDePagoDTO;
+    }
 
-    }*/
+    public List<OrdenDePagoDTO> getAllOrdenesDePago() {
+        List<OrdenDePagoDTO> ordenesDePagoDTO = new ArrayList<>();
+        for (OrdenDePago orden : this.ordenesDePago) {
+            ordenesDePagoDTO.add(orden.toDTO());
+        }
+        return ordenesDePagoDTO;
+    }
+
+    public List<OrdenDePagoDTO> getOrdenesDePagoByDocumentoAsociado(int idDocuentoAsociado) {
+        List<OrdenDePagoDTO> OrdenesDePagoDTO = new ArrayList<>();
+        for (OrdenDePago orden : this.ordenesDePago) {
+            if (orden.getIdDocumentoAsociado() == idDocuentoAsociado) {
+                OrdenesDePagoDTO.add(orden.toDTO());
+            }
+        }
+        return OrdenesDePagoDTO;
+    }
+
 }

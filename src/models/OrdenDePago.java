@@ -1,18 +1,46 @@
 package models;
 
+import dto.FacturaDTO;
 import models.enums.ResponsabilidadIva;
 import models.enums.FormaDePago;
 import java.util.Date;
+import dto.OrdenDePagoDTO;
 
 public class OrdenDePago {
 
     // Atributos
 
     private FormaDePago formaPago;
-    private int idDocumento;
+    private int idDocumentoAsociado;
     private int idOrdenPago;
+    private float importe;
 
+    private Date fecha;
 
+    public OrdenDePago(int idOrdenPago, FormaDePago formaDePago, int idDocumentoAsociado, float importe){
+        this.formaPago = formaDePago;
+        this.idOrdenPago = idOrdenPago;
+        this.idDocumentoAsociado = idDocumentoAsociado;
+        this.importe = importe;
+        this.fecha = new Date();
+    }
+
+    public OrdenDePago(OrdenDePagoDTO ordenDePagoDTO){
+        this.formaPago = ordenDePagoDTO.formaPago;
+        this.idOrdenPago = ordenDePagoDTO.idOrdenPago;
+        this.idDocumentoAsociado = ordenDePagoDTO.idDocumentoAsociado;
+        this.importe = ordenDePagoDTO.importe;
+        this.fecha = new Date();
+    }
+
+    public OrdenDePagoDTO toDTO() {
+        OrdenDePagoDTO ordenDePagoDTO = new OrdenDePagoDTO();
+        ordenDePagoDTO.idDocumentoAsociado = this.getIdDocumentoAsociado();
+        ordenDePagoDTO.fecha = this.getFecha();
+        ordenDePagoDTO.importe = this.importe;
+        ordenDePagoDTO.formaPago = this.getFormaPago();
+        return ordenDePagoDTO;
+    }
 
     // Metodos
 
@@ -25,14 +53,28 @@ public class OrdenDePago {
         this.formaPago = formaPago;
     }
 
-    public int getIdDocumento() {
-        return idDocumento;
+    public int getIdDocumentoAsociado() {
+        return idDocumentoAsociado;
     }
 
+    public float getImporte() {
+        return importe;
+    }
 
+    public Date getFecha() {
+        return fecha;
+    }
     // Setters
-    public void setIdDocumento(int idDocumento) {
-        this.idDocumento = idDocumento;
+    public void setImporte(float importe) {
+        this.importe = importe;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setIdDocumentoAsociado(int idDocumento) {
+        this.idDocumentoAsociado = idDocumento;
     }
 
     public int getIdOrdenPago() {
