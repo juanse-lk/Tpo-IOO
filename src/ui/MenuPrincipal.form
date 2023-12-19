@@ -65,7 +65,11 @@
           <text value="Productos"/>
         </properties>
       </component>
+<<<<<<< HEAD
       <component id="ab5a" class="javax.swing.JButton" binding="documentosButton" default-binding="true">
+=======
+      <component id="ab5a" class="javax.swing.JButton" binding="btnDocumentos">
+>>>>>>> b31177974f4b2817943c79c85ddded6741554d4c
         <constraints/>
         <properties>
           <background color="-15392958"/>

@@ -12,7 +12,11 @@ public class MenuPrincipal extends JFrame{
     private JPanel pnlHeader;
     private JButton btnProveedores;
     private JButton btnProductos;
+<<<<<<< HEAD
     private JButton documentosButton;
+=======
+    private JButton btnDocumentos;
+>>>>>>> b31177974f4b2817943c79c85ddded6741554d4c
     private JButton proveedoresButton2;
 
     public MenuPrincipal(String titulo) throws Exception{
@@ -29,6 +33,7 @@ public class MenuPrincipal extends JFrame{
 
         this.showProveedoresModule();
         this.showProductosModule();
+        this.showDocumentosModule();
 
         this.closeModule();
     }
@@ -62,6 +67,22 @@ public class MenuPrincipal extends JFrame{
                 self.setVisible(false);
                 try {
                     MenuProductosUi p = new MenuProductosUi("Productos");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    void showDocumentosModule() {
+        MenuPrincipal self = this;
+        btnDocumentos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                self.setVisible(false);
+                try {
+                    MenuDocumentosUi p = new MenuDocumentosUi("Documentos");
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
