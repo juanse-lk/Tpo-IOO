@@ -1,26 +1,27 @@
 package models;
 
 import models.enums.ResponsabilidadIva;
-
+import models.enums.FormaDePago;
 import java.util.Date;
 
 public class OrdenDePago {
 
     // Atributos
 
-    private FormaPago formaPago;
+    private FormaDePago formaPago;
     private int idDocumento;
     private int idOrdenPago;
+
 
 
     // Metodos
 
     // Getters
-    public FormaPago getFormaPago() {
+    public FormaDePago getFormaPago() {
         return formaPago;
     }
 
-    public void setFormaPago(FormaPago formaPago) {
+    public void setFormaPago(FormaDePago formaPago) {
         this.formaPago = formaPago;
     }
 
